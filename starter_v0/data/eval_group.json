@@ -1,7 +1,7 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp (5 single-turn G01-G05 và 5 multi-turn GM01-GM05). Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Kèm metadata.what_it_tests.",
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp (6 single-turn G01-G06 và 5 multi-turn GM01-GM05). Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Kèm metadata.what_it_tests.",
   "allowed_failure_types": [
     "wrong_tool",
     "wrong_arg_value",
@@ -108,6 +108,30 @@
         "skill": "out_of_scope_creative_writing",
         "difficulty": "easy",
         "what_it_tests": "Single-turn: yêu cầu sáng tác thơ ngoài phạm vi research agent -> không gọi tool và từ chối lịch sự."
+      }
+    },
+    {
+      "id": "G06_hf_search_models_routing",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm 3 model checkpoint trên Hugging Face Hub với từ khóa qwen2.5.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hf_search",
+            "args": {
+              "query": "qwen2.5",
+              "resource_type": "models",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "new_tool_hf_search_routing",
+        "difficulty": "medium",
+        "what_it_tests": "Một lượt: chọn hf_search để tìm model checkpoint trên Hugging Face, không dùng lookup hoặc papers; truyền đúng từ khóa, resource_type=models và limit=3."
       }
     },
     {

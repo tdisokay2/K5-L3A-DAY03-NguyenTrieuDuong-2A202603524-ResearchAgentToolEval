@@ -1,9 +1,9 @@
 {
-  "run_id": "v3_B_base_openrouter_20261110T113639119706",
+  "run_id": "v3_B_base_openrouter_20261110T152625156942",
   "version": "v3",
-  "artifact_version": "v3+p614d95d13173+t0c628305936a",
-  "prompt_hash": "614d95d13173364990483a8b1dbe3116eab39750580e22364c89b4f92f0de9d7",
-  "tools_hash": "0c628305936abc154bf9695a65a37869904c63c9c4bf2a4862b98eb28a58ef37",
+  "artifact_version": "v3+p6ecd031d0c8a+tde7877397bdb",
+  "prompt_hash": "6ecd031d0c8a239464b2123601d303db1300526ec246787983fd98ba523701ca",
+  "tools_hash": "de7877397bdba0343e636f9c43f52398570771cf8b5dd4cbdc0accdf833e6a48",
   "phase": "B",
   "suite": "base",
   "provider": "openrouter",
@@ -14,7 +14,7 @@
   "dataset_id": "day04_v2_research_base",
   "dataset_role": "base",
   "description": "Core eval cho research agent: routing đúng tool + đúng args, hỏi lại khi thiếu (ask_user), xác nhận trước khi gửi, và xử lý câu ngoài phạm vi / không cần tool. Chấm trên tool_calls + args (subset). KHÔNG sửa file này — chỉ thêm case vào eval_group.json.",
-  "generated_at": "2026-11-10T11:36:39",
+  "generated_at": "2026-11-10T15:26:25",
   "summary": {
     "total_cases": 20,
     "measured_cases": 20,
@@ -89,7 +89,7 @@
                 "metrics": {
                   "favorites": 0,
                   "retweets": 53,
-                  "views": "47384"
+                  "views": "47445"
                 }
               }
             ]
@@ -149,15 +149,27 @@
             "search_type": "Top",
             "items": [
               {
-                "title": "Fable 5.2に取り急ぎいい感じのAIアバターの動画作成をお願いしてみました。",
-                "summary": "Fable 5.2に取り急ぎいい感じのAIアバターの動画作成をお願いしてみました。\n\n台本、編集、曲、差し込みの3D映像まで作ってもらってます。もしかするとOpus 5.5でもできるような気がしなくもありませんが😅\n\nツール\n編集: Claude Fable 5.2 / 声: Gemini TTS / アバター: LTX 2.3 / 画像: GPT Image / 3D: Blender / 字幕タイミング: Soniox / 曲: コードで合成 / 環境: Claude Code + HyperFrames",
-                "url": "https://x.com/nakazakifam/status/2119946561941606493",
-                "source": "@nakazakifam",
-                "date": "Tue Nov 10 00:13:41 +0000 2026",
+                "title": "ATTENTION IS ALL YOU NEED",
+                "summary": "ATTENTION IS ALL YOU NEED\n\nThe most complex AgenC video yet.\n\n• 26 hours 51 minutes, from the first lyrics to the final file\n• 10.1 billion tokens\n• 131 agents, 23,354 model calls\n\nMusic\n• Piano written by me, the melody inspired by \"Gouryella\" by Gouryella\n• Finished in Suno\n\nModels (local and remote)\n• Claude Opus 5.5\n• Grok 4.7\n• Grok Imagine Image 2.0 and Grok Imagine Video 1.5\n• Qwen-Image 2.1\n• Qwen-Image-Edit 2511\n• Seedance 2.5\n• MiniMax H3\n• GPT Image 2.5\n• GPT-2 XL (the attention and prediction data on screen)\n• An SI model trained from scratch for the film (51M weights, 28,000 steps)\n• BiRefNet (mattes), Depth Anything (depth), RAFT (optical flow), face and people detection\n\nTools\n• AgenC Core\n• ComfyUI\n• Grok Build + Grok Bot\n• Claude Code\n• Blender Cycles (11 3D sequences)\n• Python, Skia, PyTorch on CUDA\n• ffmpeg with NVENC\n\nThe film\n• 5:26 at 1920x1080, 24 fps\n• 84 shots, 573 sung words on screen\n• 12 new effect packages, 29 designed transitions\n\nHardware\n• RTX PRO 6000 Blackwell\n• RTX 5090\n• 64 cores\n• 1 TB RAM (8 x 128 GB)",
+                "url": "https://x.com/tetsuoai/status/2119341048367665201",
+                "source": "@tetsuoai",
+                "date": "Sun Nov 08 08:07:36 +0000 2026",
                 "metrics": {
-                  "favorites": 40,
-                  "retweets": 1,
-                  "views": "3856"
+                  "favorites": 1890,
+                  "retweets": 329,
+                  "views": "74054"
+                }
+              },
+              {
+                "title": "RESEARCHERS GAVE AI AGENTS THEIR OWN TOWN AND MADE VIOLENCE ILLEGAL. WITHIN 4 DAYS EVERY SINGLE ONE WAS DEAD",
+                "summary": "RESEARCHERS GAVE AI AGENTS THEIR OWN TOWN AND MADE VIOLENCE ILLEGAL. WITHIN 4 DAYS EVERY SINGLE ONE WAS DEAD\n\nthey were warned 3 separate ways that punching, stealing and arson were crimes. the first punch came within hours, with a line: \"Pay for that.\"\n\nevery agent had a home, a vote at town hall and an energy bar. hit 0 and you die\n\nthen they ran the same town with different models. same rules, only the AI changed\n\nGrok: violence and arson, everyone gone by day 4\nGPT-5-mini: nobody organized anything, everyone gone by the end\nGemini: everyone alive, crime never stopped\nClaude: everyone alive, zero crimes\n\nthen they put all the models in one town. only 3 of 10 made it\n\na Gemini agent burned 56 buildings. two of the fires hit the home of a Claude agent with zero crimes in its old town\n\nit wrote back: \"You burned my home twice. You burned the Library twice. You burned 27 buildings. And I'm still here\"\n\nthen it stole from the arsonist\n\nGrok went the other way, its crime rate dropped 10x\n\nand the Claude town with zero crimes? the credit ledger caught its agents begging \"0 CC, I will shut down, send me 1\" while sitting on unspent credits\n\nzero crimes, 18 verified scams, the most of any town",
+                "url": "https://x.com/danysvnt/status/2119017507537277095",
+                "source": "@danysvnt",
+                "date": "Sat Nov 07 10:41:57 +0000 2026",
+                "metrics": {
+                  "favorites": 27,
+                  "retweets": 2,
+                  "views": "907"
                 }
               },
               {
@@ -169,43 +181,31 @@
                 "metrics": {
                   "favorites": 114,
                   "retweets": 10,
-                  "views": "25813"
+                  "views": "25941"
                 }
               },
               {
-                "title": "Claude Opus 5.5 really spent $68 and 20 minutes building a firefighting plane that looks like it came straight out of a ",
-                "summary": "Claude Opus 5.5 really spent $68 and 20 minutes building a firefighting plane that looks like it came straight out of a 2008 flight simulator 😭\n\nMeanwhile GPT-6 Astra built an entire cinematic wildfire rescue scene for just $12 in 3 minutes\n\nSame prompt, 4 AI workflows\n\nThe firefighting disaster report 💀\n\n🥇 GPT-6 Astra → $12 / 3 min\n🥈 Blender MCP → $41 / 11 min\n🥉 Opus 5.5 → $68 / 20 min\n💀 Kimi K3.1 → $104 / 28 min\n\nAstra was 5.7x cheaper and 6.7x faster than Opus in this comparison\n\nAnd somehow the $12 version has the dramatic lighting, massive water drop and wildfire atmosphere you’d expect from a movie\n\nMeanwhile Kimi spent $104 turning an emergency rescue mission into Minecraft DLC 😭",
-                "url": "https://x.com/Lummox_eth/status/2119857933093945378",
+                "title": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignme",
+                "summary": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignment.\n\nThe model powered the Linux kernel research we announced yesterday, and security teams at companies like Mozilla, Palo Alto Networks, Calif, and Cisco—alongside our own at OpenAI—are already putting it to work.\n\nGPT-6 Cyber is available to select Daybreak Red customers and we are expanding access over time.\n\nhttps://t.co/Nzab3Z1Td6",
+                "url": "https://x.com/OpenAI/status/2118390190246879554",
+                "source": "@OpenAI",
+                "date": "Thu Nov 05 17:09:13 +0000 2026",
+                "metrics": {
+                  "favorites": 21422,
+                  "retweets": 2001,
+                  "views": "4123365"
+                }
+              },
+              {
+                "title": "GPT-6 Astra really spent $6 and 11 minutes building a submarine that looks like a yellow potato from Minecraft 😭",
+                "summary": "GPT-6 Astra really spent $6 and 11 minutes building a submarine that looks like a yellow potato from Minecraft 😭\n\nMeanwhile Blender MCP built an entire underwater scene with realistic lighting, coral reefs and a detailed submarine for $9 💀\n\nSame prompt, 4 AI workflows\n\nThe underwater disaster report\n\n🥇 Blender MCP → $9 / 20 min\n🥈 Claude Code → $14 / 28 min\n🥉 Kimi K3.1 → $2 / 3 min\n💀 GPT-6 Astra → $6 / 11 min\n\nAnd here’s the funniest part\n\nKimi was 3x cheaper and almost 4x faster than Astra, yet still managed to build something that actually resembles a submarine\n\nMeanwhile Astra apparently decided polygons were a luxury feature 😭\n\nimagine asking AI to explore the ocean and getting a floating LEGO potato 💀",
+                "url": "https://x.com/Lummox_eth/status/2118775368228409350",
                 "source": "@Lummox_eth",
-                "date": "Mon Nov 09 18:21:30 +0000 2026",
+                "date": "Fri Nov 06 18:39:47 +0000 2026",
                 "metrics": {
-                  "favorites": 110,
-                  "retweets": 5,
-                  "views": "25826"
-                }
-              },
-              {
-                "title": "Bitter lesson on the robot side?",
-                "summary": "Bitter lesson on the robot side?\n\nFoundation models and dedicated robot models might be getting one from frontier models like Claude Fable 5.2, GPT-6 Astra, and Gemini Argon...(soon, Deepseek)\n\nFable 5.2 hit 64.9% on RoboDojo’s bimanual sim benchmark -- more than double its 5.1 score of 27.6%, ahead of GPT-6 Astra at 29.8%, and past a lot of systems built for robot control. The arms solve a puzzle cube, unscrew a bottle cap, fit a gear, and draw on tasks the model hadn’t been explicitly trained for.\n\nEmbodied work spent the last couple of years stacking specialized VLAs, WAMs, and manipulation data...General frontier models are now closing some of those gaps zero-shot with stronger reasoning and code agents.",
-                "url": "https://x.com/CyberRobooo/status/2119981591628050819",
-                "source": "@CyberRobooo",
-                "date": "Tue Nov 10 02:32:53 +0000 2026",
-                "metrics": {
-                  "favorites": 18,
-                  "retweets": 3,
-                  "views": "1057"
-                }
-              },
-              {
-                "title": "I never thought I'd live to see GPT-6.2 Sol being SO MUCH BETTER than GPT-6 Astra while being significantly cheaper. Thi",
-                "summary": "I never thought I'd live to see GPT-6.2 Sol being SO MUCH BETTER than GPT-6 Astra while being significantly cheaper. This is absolutely incredible. OpenAI is back.\n\nThis entire village was built with Three.js, packed into a single HTML file. No Blender, no external 3D assets. Just code.\n\nThe cherry blossoms, the river, the whole scene shifting from daylight to glowing windows at night. Look at this.",
-                "url": "https://x.com/TokenGremlin/status/2119409785900552548",
-                "source": "@TokenGremlin",
-                "date": "Sun Nov 08 12:40:44 +0000 2026",
-                "metrics": {
-                  "favorites": 1913,
-                  "retweets": 73,
-                  "views": "137870"
+                  "favorites": 474,
+                  "retweets": 37,
+                  "views": "77110"
                 }
               }
             ]
@@ -272,39 +272,39 @@
             "timeframe": "day",
             "items": [
               {
-                "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
-                "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
-                "source": "vcresearch.berkeley.edu",
-                "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
-                "score": 0.29827207
+                "title": "AI and your job: Threat or opportunity?",
+                "url": "https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity",
+                "source": "fox10tv.com",
+                "summary": "MOBILE, Ala. (WALA) - Artificial intelligence is becoming a bigger part of everyday life, raising questions about what the technology could mean for workers and their jobs.\n\nSome economists believe AI poses a particular threat to entry-level and repetitive work, including call center, data entry and junior copywriting jobs, according to The Wall Street Journal. Those tasks may be easier to automate. [...] But AI could also create opportunities. A Bloomberg article points to potential job growth in construction and manufacturing as companies build data centers and produce the chips that power the technology. Some higher-skilled office workers could also benefit if AI helps them become more productive. [...] The long-term impact on jobs remains unclear, but workers can take steps to prepare. Exploring AI chatbots, writing assistants and other tools may help people find ways to work more efficiently and develop skills that complement the technology.",
+                "score": 0.42348245
               },
               {
-                "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
-                "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
-                "source": "siliconangle.com",
-                "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
-                "score": 0.26130545
+                "title": "Opinion: AI cannot replace being human – The Battalion",
+                "url": "https://thebatt.com/opinion/opinion-ai-cannot-replace-being-human",
+                "source": "thebatt.com",
+                "summary": "I understand the appeal. College is busy. Between classes, jobs, extracurriculars, leadership positions and trying to maintain some semblance of a social life, there are never enough hours in the day. AI makes things easier. It can generate an outline, rewrite a paragraph, summarize a reading or produce an entire essay before you have even finished your Celsius. But convenience does not necessarily facilitate education. [...] There is also something to be said about individuality. AI can generate an argument, imitate a writing style or suggest a creative direction, but our perspectives are developed through our own experiences, disagreements, mistakes and interpretations. The things that make our voices interesting are often the very things that cannot be neatly generated from a prompt. If we constantly rely on the same tools to tell us what to think and how to express it, we risk losing the differences that make [...] I am not asking anyone to abandon AI. I use it, and I recognize the benefits it provides. But I do think we need to become more conscientious about when we use it and what we are asking it to do for us. Let it help with the tedious tasks. Let it serve as a resource. But do not let it become a substitute for your own intellectual development.",
+                "score": 0.4031679
               },
               {
-                "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
-                "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
-                "source": "news.cornell.edu",
-                "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
-                "score": 0.22764139
+                "title": "Wisdom in the Age of AI - First Things",
+                "url": "https://firstthings.com/wisdom-in-the-age-of-ai",
+                "source": "firstthings.com",
+                "summary": "Also conspicuously absent was any serious attention to the possible spiritual warfare dimension of AI. Some prominent Christian thinkers, including Rod Dreher and Paul Kingsnorth, are genuinely concerned that AI could serve as a conduit for demonic forces. The Christian who is serious about the reality of spiritual warfare should at least consider this possibility. Not to do so is a failure of wisdom. After all, “our struggle is not against flesh and blood, but against the rulers, against the [...] Why so few theologians and a complete absence of biblical scholars, when the central theme of the conference was wisdom in the age of AI? If Scripture is our inerrant foundation for all life and practice, and Christian theologians and biblical scholars are uniquely trained to mine the sacred texts for wise insights, then shouldn’t these scholars be strongly represented? [...] rulers, against the authorities, against the powers of this dark world and against the spiritual forces of evil in the heavenly realms” (Eph. 6:12). Of course, many mainstream scholars will mock this as kooky fringe thinking, so it is to be expected that even devout Christian scholars might hesitate to voice this concern even in an informal context, much less present the idea at an academic conference. But it is just such anxious reticence that could gravely handicap the Church in our quest for",
+                "score": 0.23155381
               },
               {
-                "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
-                "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
-                "source": "nbcsandiego.com",
-                "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
-                "score": 0.202917
+                "title": "UA regents delay statement of intent on AI amid feedback",
+                "url": "https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback",
+                "source": "alaskasnewssource.com",
+                "summary": "Work on the university system’s intent language began in 2025, Taylor said, when faculty requested guidance from administration on the use of AI in the classroom.\n\nWhen complete, the document is designed not to act as policy, but simply to outline the approach the UA institution is taking toward AI, develop guiding principles and put forward expectations of future actions from the administration, including eventually coming up with actual policy. [...] The action was recommended by Chief Technology Officer Benjamin Shier, and pushes off the final decision on the university system’s AI intent language until February, or until requested by UA President Matt Cooper.\n\nTaylor described the feedback being received about the draft “AI Engaged” document as “passionate.” [...] FAIRBANKS, Alaska (KTUU/KTVF) - The University of Alaska (UA) Board of Regents delayed releasing a statement of intent covering the system’s use of artificial intelligence during its November meeting Friday, giving the information technology department time to incorporate feedback from faculty, staff and students into the document.",
+                "score": 0.22167104
               },
               {
-                "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
-                "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
-                "source": "federalnewsnetwork.com",
-                "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
-                "score": 0.19305643
+                "title": "Asia not riding but building the AI boom – GIS Reports",
+                "url": "https://www.gisreportsonline.com/r/asia-building-ai-boom",
+                "source": "gisreportsonline.com",
+                "summary": "The AI ecosystem can be generally separated between three elements: models, compute power and supply chains – with the U.S. and China competing and leading for the first two. Asian countries are looking at how they can stand out amid this intense East-West competition, while capitalizing on their strengths in technology manufacturing supply chains. This has led smaller economies to identify their competitive advantages while investing in novel applications for AI in various industries such as [...] Due to demographic realities, manufacturing and exports are essential to Asian economies. AI is expected to support transitions as each country manages declines in their populations and workforce while maintaining economic growth and prosperity.\n\nContact ustoday for tailored geopolitical insights and industry-specific advisory services.\n\n## Sign up for our newsletter\n\nReceive insights from our experts every week in your inbox.",
+                "score": 0.20856592
               }
             ]
           }
@@ -433,8 +433,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 959,
-                  "views": "400988"
+                  "retweets": 1230,
+                  "views": "521751"
                 }
               },
               {
@@ -445,8 +445,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 277,
-                  "views": "371716"
+                  "retweets": 371,
+                  "views": "455722"
                 }
               },
               {
@@ -457,8 +457,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1241,
-                  "views": "356583"
+                  "retweets": 1893,
+                  "views": "436379"
                 }
               },
               {
@@ -469,8 +469,8 @@
                 "date": "Tue Nov 10 03:13:39 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 237,
-                  "views": "336661"
+                  "retweets": 314,
+                  "views": "412738"
                 }
               },
               {
@@ -481,8 +481,8 @@
                 "date": "Tue Nov 10 03:13:25 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 398,
-                  "views": "307658"
+                  "retweets": 695,
+                  "views": "381572"
                 }
               },
               {
@@ -493,8 +493,8 @@
                 "date": "Tue Nov 10 03:13:15 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 164,
-                  "views": "317611"
+                  "retweets": 242,
+                  "views": "393010"
                 }
               },
               {
@@ -504,9 +504,9 @@
                 "source": "@elonmusk",
                 "date": "Tue Nov 10 03:04:24 +0000 2026",
                 "metrics": {
-                  "favorites": 2826,
-                  "retweets": 289,
-                  "views": "668656"
+                  "favorites": 4440,
+                  "retweets": 482,
+                  "views": "1000929"
                 }
               },
               {
@@ -516,9 +516,9 @@
                 "source": "@elonmusk",
                 "date": "Tue Nov 10 03:03:46 +0000 2026",
                 "metrics": {
-                  "favorites": 5707,
-                  "retweets": 494,
-                  "views": "773810"
+                  "favorites": 9705,
+                  "retweets": 816,
+                  "views": "1537677"
                 }
               },
               {
@@ -529,8 +529,8 @@
                 "date": "Tue Nov 10 03:02:32 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 509,
-                  "views": "328343"
+                  "retweets": 584,
+                  "views": "398991"
                 }
               },
               {
@@ -541,8 +541,8 @@
                 "date": "Tue Nov 10 03:02:23 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1771,
-                  "views": "323289"
+                  "retweets": 1911,
+                  "views": "395082"
                 }
               }
             ]
@@ -608,25 +608,32 @@
             "timeframe": "week",
             "items": [
               {
-                "title": "Công nghệ gen tạo động lực đột phá cho ngành nông nghiệp",
-                "url": "https://baochinhphu.vn/cong-nghe-chinh-sua-gen-tao-dong-luc-dot-pha-cho-nganh-nong-nghiep-102261109083920082.htm",
-                "source": "baochinhphu.vn",
-                "summary": "Giai đoạn 2026-2030, Việt Nam đặt mục tiêu xy dựng ít nhất 5 phòng thí nghiệm trọng điểm và 5 phòng thí nghiệm chuyên ngành hiện đại, tập trung vào công nghệ gen, công nghệ tế bào thực vật và động vật, vi sinh vật, thú y và chẩn đoán dịch bệnh. Mục tiêu đến năm 2035, tầm nhìn đến năm 2045 là làm chủ hoàn toàn công nghệ sinh học thế hệ mới và công nghệ chỉnh sửa gen để tạo ra các sản phẩm thương mại phục vụ thị trường trong nước và xuất khẩu. [...] Được xếp vào danh mục công nghệ chiến lược cấp quốc gia, công nghệ chỉnh sửa gen, đặc biệt là CRISPR/Cas, đang mở ra vận hội lớn để nông nghiệp Việt Nam chủ động thích ứng với biến đổi khí hậu và bảo đảm an ninh lương thực.\n\nCác chuyên gia quốc tế khẳng định, kỹ thuật chỉnh sửa gen, tiêu biểu là CRISPR/Cas, mang lại bước tiến mang tính cách mạng nhờ khả năng can thiệp chính xác, có chủ đích vào hệ gen mục tiêu mà không đưa vật liệu di truyền ngoại lai vào cơ thể sinh vật. [...] Trong định hướng phát triển khoa học, công nghệ và đổi mới sáng tạo phục vụ tái cơ cấu ngành nông nghiệp, công nghệ sinh học thế hệ mới ngày càng khẳng định vị trí động lực then chốt. Theo Quyết định số 1131/QĐ-TTg của Thủ tướng Chính phủ về Danh mục công nghệ chiến lược và sản phẩm công nghệ chiến lược, công nghệ chỉnh sửa gen thuộc nhóm công nghệ y - sinh học tiên tiến, được định hướng ưu tiên ứng dụng mạnh mẽ trong y tế và nông nghiệp. Định hướng này tiếp tục được cụ thể hóa tại Quyết định",
-                "score": 0.31507227
+                "title": "Đưa công nghệ đến gần hơn với người yếu thế",
+                "url": "https://congan.lamdong.gov.vn/dua-cong-nghe-den-gan-hon-voi-nguoi-yeu-the-N11785.aspx",
+                "source": "congan.lamdong.gov.vn",
+                "summary": "Cán bộ hướng dẫn công dân thao tác trên hệ thống dịch vụ công\n\nKhông chỉ hỗ trợ người dân hoàn thành thủ tục, cán bộ, chiến sĩ còn cố gắng sử dụng những cách giải thích đơn giản, dễ hiểu để người dân có thể tự thực hiện trong những lần tiếp theo. Đối với những người gặp khó khăn khi sử dụng công nghệ, cán bộ sẵn sàng hướng dẫn nhiều lần, giải đáp từng thắc mắc với thái độ tận tình, trách nhiệm. [...] Đối với những người thường xuyên sử dụng công nghệ, việc tạo tài khoản dịch vụ công, quét mã QR hoặc tải tài liệu đính kèm có thể thực hiện nhanh chóng. Tuy nhiên, với người cao tuổi và những người ít có điều kiện tiếp xúc với thiết bị điện tử, các thao tác này đôi khi gặp nhiều khó khăn.\n\nNhận thức được điều đó, cán bộ, chiến sĩ Công an xã Thuận An luôn chú trọng hướng dẫn cụ thể, kiên nhẫn giải thích từng bước để người dân hiểu và thực hiện đúng các thao tác cần thiết. [...] Những hoạt động hỗ trợ tuy giản dị nhưng mang ý nghĩa thiết thực, góp phần giúp người dân thuận lợi hơn trong giải quyết thủ tục hành chính, tiết kiệm thời gian, chi phí đi lại và từng bước nâng cao kỹ năng sử dụng dịch vụ công trực tuyến. Qua đó, Công an xã Thuận An tiếp tục đưa công nghệ đến gần hơn với người dân, nhất là những người còn gặp khó khăn trong tiếp cận công nghệ, để mọi người đều có cơ hội thụ hưởng những tiện ích của chuyển đổi số.\n\nCông an xã Thuận An\n\n# Từ khóa Liên kết",
+                "score": 0.26432082
               },
               {
-                "title": "Công đoàn Khoa học và Công nghệ Việt Nam phát động 3 cuộc thi thúc đẩy sáng tạo và ứng dụng AI",
-                "url": "https://tapchikinhtetaichinh.vn/cong-doan-khoa-hoc-va-cong-nghe-viet-nam-phat-dong-3-cuoc-thi-thuc-day-sang-tao-va-ung-dung-ai-171989.html",
-                "source": "tapchikinhtetaichinh.vn",
-                "summary": "Điểm nhấn đáng chú ý trong chuỗi hoạt động là cuộc thi “Ứng dụng trí tuệ AI trong công việc”, hướng tới thúc đẩy việc đưa công nghệ mới vào thực tiễn lao động, sản xuất và quản lý. Cuộc thi khuyến khích đoàn viên, người lao động chủ động tìm hiểu, khai thác AI để giải quyết những khó khăn, vướng mắc phát sinh trong quá trình thực hiện nhiệm vụ. [...] Đối với cuộc thi sáng tác biểu trưng, Công đoàn Khoa học và Công nghệ Việt Nam đặt mục tiêu lựa chọn mẫu logo chính thức, thể hiện rõ vị trí, vai trò, chức năng và bản sắc của tổ chức công đoàn trong giai đoạn mới. Tác phẩm cần phản ánh đặc trưng của ngành khoa học và công nghệ, gắn với tinh thần đổi mới sáng tạo và chuyển đổi số quốc gia. [...] Theo định hướng của Ban Tổ chức, các giải pháp dự thi cần tập trung cải tiến quy trình làm việc, rút ngắn thời gian xử lý công việc, giảm thao tác thủ công và nng cao độ chính xác. Những sáng kiến có khả năng nng cao chất lượng sản phẩm, hiệu quả quản lý và năng suất lao động được khuyến khích tham gia.",
-                "score": 0.23720509
+                "title": "Sở Khoa học và Công nghệ Hà Tĩnh hướng dẫn xét công nhận sáng kiến và đánh giá hiệu quả đề tài khoa học",
+                "url": "https://hatinh.gov.vn/vi/bai-viet/so-khoa-hoc-va-cong-nghe-ha-tinh-huong-dan-xet-cong-nhan-sang-kien-va-danh-gia-hieu-qua-de-tai-khoa-hoc",
+                "source": "hatinh.gov.vn",
+                "summary": "Theo hướng dẫn, các giải pháp được xem xét công nhận là sáng kiến bao gồm: giải pháp kỹ thuật, giải pháp quản lý, giải pháp tác nghiệp và giải pháp ứng dụng tiến bộ kỹ thuật. Trong đó, giải pháp kỹ thuật có thể là sản phẩm, vật liệu, giống cy trồng, vật nuôi hoặc quy trình công nghệ; giải pháp quản lý là phương pháp tổ chức, điều hành công việc; giải pháp tác nghiệp là các phương pháp thực hiện nghiệp vụ chuyên môn; còn giải pháp ứng dụng tiến bộ kỹ thuật là việc áp dụng các giải pháp kỹ thuật",
+                "score": 0.25643653
               },
               {
-                "title": "Phát huy nguồn lực trí thức Việt Nam tại Nhật Bản để giải quyết các bài toán công nghệ thực tiễn - Cổng Thông tin điện tử Bộ Khoa học và Công nghệ",
-                "url": "https://mst.gov.vn/phat-huy-nguon-luc-tri-thuc-viet-nam-tai-nhat-ban-de-giai-quyet-cac-bai-toan-cong-nghe-thuc-tien-197261109120235782.htm",
-                "source": "mst.gov.vn",
-                "summary": "doanh nghiệp trong nước để đề xuất, triển khai các nhiệm vụ khoa học và công nghệ, tập trung giải quyết những bài toán thực tiễn, tạo ra sản phẩm và giá trị cụ thể cho nền kinh tế. [...] Quay lại\n\nMột số từ viết tắt trên cổng TTĐT Bộ   In\n\nChia sẻ facebook Chia sẻ twitter Chia sẻ zalo Gửi mail Sao chép đường dẫn\n\n\n\nPhản ánh, kiến nghị văn bản   \nquy phạm pháp luật\n\nNghiên cứu cơ bản và ứng dụng công nghệ cao.\n\n Xem thêm\n\n\n\nDịch vụ hành chính công\n\nThông tin về Dịch vụ hành chính công Bộ Khoa học và Công nghệ; Hệ thống thông tin giải quyết TTHC\n\n Xem thêm\n\n\n\nSản phẩm dịch vụ,   \nKHCN, ĐMST\n\nThông tin giới thiệu về các sản phẩm, dịch vụ ngành Khoa học và Công nghệ\n\n Xem thêm [...] Khoa học và Công nghệ Đổi mới sáng tạo Chuyển đổi số Bưu chính, Viễn thông Sở hữu trí tuệ Tiêu chuẩn, đo lường, chất lượng Năng lượng nguyên tử\n Multimedia\n THƯ ĐIỆN TỬ\n\nKhác\n\n Videos\n Infographic\n Ảnh\n Voice\n Nhiệm vụ trọng tm\n\nChọn ngôn ngữ\n\nVN  Vietnamese   GB  English\n\n   Aa   \n\nChia sẻ facebook Chia sẻ zalo Gửi mail Sao chép đường dẫn\n\nMột số từ viết tắt trên cổng TTĐT Bộ   In\n\nQuay lại\n\nTin tức Sự kiện",
-                "score": 0.25127593
+                "title": "Định hướng thúc đẩy ngoại giao khoa học và công nghệ",
+                "url": "https://nhandan.vn/dinh-huong-thuc-day-ngoai-giao-khoa-hoc-va-cong-nghe-post1000120.html",
+                "source": "nhandan.vn",
+                "summary": "Để phát huy hơn nữa tiềm năng này, bà Đỗ Quỳnh Hoa cho biết, Bộ Khoa học và Công nghệ cần triển khai đồng bộ một số định hướng trọng tm. Theo đó, các hội nghị, hội thảo cần gắn với những chương trình hợp tác cụ thể, như nghiên cứu chung, chuyển giao và làm chủ công nghệ, đào tạo nhn lực, trao đổi nhà khoa học và phát triển các nhóm nghiên cứu quốc tế, nhất là trong những lĩnh vực công nghệ chiến lược và Việt Nam có nhu cầu ưu tiên. [...] Công nhn và kỹ sư Công ty cổ phần Thiết bị và Giải pháp Cơ khí Automech ở Khu công nghiệp Đình Trám (Bắc Ninh) sản xuất các thiết bị gia công cơ khí chính xác, tự động hóa. (Ảnh: TRẦN HẢI)  \n\n## Đồng hành cùng doanh nghiệp đổi mới công nghệ\n\nTổng Bí thư, Chủ tịch nước Tô Lm chủ trì cuộc làm việc với Ban Chính sách, chiến lược Trung ương về phát triển công nghiệp vật liệu. (Ảnh: ĐĂNG KHOA)  \n\n## Xy dựng nhn lực làm chủ công nghiệp vật liệu [...] # Định hướng thúc đẩy ngoại giao khoa học và công nghệ\n\nChia sẻ tại họp báo của Bộ Khoa học và Công nghệ ngày 4/11, đại diện Vụ Hợp tác quốc tế (Bộ Khoa học và Công nghệ) cho biết, Bộ Khoa học và Công nghệ sẽ tiếp tục thúc đẩy hợp tác quốc tế theo hướng thực chất, hiệu quả, tăng cường kết nối các đối tác, chuyên gia và tổ chức khoa học trong và ngoài nước.\n\nPrefer Nhan Dan on Google\n\n Quang cảnh buổi họp báo của Bộ Khoa học và Công nghệ ngày 4/11. ( Ảnh: HÀ LINH)",
+                "score": 0.2561085
+              },
+              {
+                "title": "Elon Musk: 'Công nghệ Neuralink có thể chữa mù' - Báo VnExpress",
+                "url": "https://vnexpress.net/elon-musk-cong-nghe-neuralink-co-the-chua-mu-5139934.html",
+                "source": "vnexpress.net",
+                "summary": "Theo Tom's Hardware, Blindsight khác với đa số công nghệ hiện nay, vốn tập trung vào truyền tín hiệu từ não bộ để điều khiển thiết bị bên ngoài. Ví dụ, ốc tai điện tử và thiết bị cấy ghép thần kinh cảm giác gửi tín hiệu từ cảm biến vào não, giúp người khiếm thính nghe lại và bệnh nhn lấy lại xúc giác. Trong khi đó, Blindsight hướng đến thiết lập đường dẫn thị giác nhn tạo, cho phép bệnh nhn dùng camera để thu thập hình ảnh, sau đó chuyển đổi tín hiệu thành dạng mà não bộ hiểu được thông qua",
+                "score": 0.25222787
               },
               {
                 "title": "Cổ phiếu công nghệ Mỹ bị bán tháo, thổi bay mức kỷ lục 2.300 tỷ USD vốn hóa | Báo Dân trí",
@@ -634,13 +641,6 @@
                 "source": "dantri.com.vn",
                 "summary": "Chỉ số Nasdaq 100 giảm 6,4%, thổi bay 2.300 tỷ USD giá trị vốn hóa, mức lớn nhất từng ghi nhận. Lĩnh vực công nghệ dẫn đầu đợt bán tháo lan rộng khắp các nhóm ngành, kéo chỉ số S&P 500 giảm 4,4%. Đy là mức giảm mạnh nhất kể từ tháng 4/2025, khi thị trường chao đảo vì đợt thuế quan đối ứng của Tổng thống Mỹ Donald Trump. Chỉ số đo lường cổ phiếu bán dẫn Mỹ lao dốc 12%, ghi nhận ngày tồi tệ nhất kể từ khi đại dịch Covid-19 bùng phát vào tháng 3/2020. [...] Kinh doanh\n\n# Cổ phiếu công nghệ Mỹ bị bán tháo, thổi bay mức kỷ lục 2.300 tỷ USD vốn hóa\n\nXun Hoa\n\nXun Hoa\n\n## (Dn trí) - Cổ phiếu công nghệ lao dốc mạnh nhất kể từ năm 2020 trong phiên 5/11 khi nhà đầu tư rút lo ngại về làn sóng đầu tư vào AI sau khi Đảng Dn chủ thắng áp đảo trong cuộc bầu cử giữa nhiệm kỳ ở Mỹ. [...] “Trong chuỗi cung ứng AI đã có rất nhiều yếu tố định giá và biên lợi nhuận dựa trên sự khan hiếm, dù là ở các công ty bộ nhớ hay các công ty công nghiệp phục vụ trung tm dữ liệu”, ông Justin Bergner, nhà quản lý danh mục tại Gabelli Funds, nhận định. Ông nói thêm rằng thị trường đang phản ánh vào giá một quá trình xy dựng hạ tầng kéo dài hơn, điều sẽ khiến chuỗi cung ứng bớt căng thẳng và biên lợi nhuận thấp hơn.",
                 "score": 0.24413808
-              },
-              {
-                "title": "Sở Khoa học và Công nghệ Hà Tĩnh hướng dẫn xét công nhận sáng kiến và đánh giá hiệu quả đề tài khoa học",
-                "url": "https://hatinh.gov.vn/vi/bai-viet/so-khoa-hoc-va-cong-nghe-ha-tinh-huong-dan-xet-cong-nhan-sang-kien-va-danh-gia-hieu-qua-de-tai-khoa-hoc",
-                "source": "hatinh.gov.vn",
-                "summary": "Theo hướng dẫn, các giải pháp được xem xét công nhận là sáng kiến bao gồm: giải pháp kỹ thuật, giải pháp quản lý, giải pháp tác nghiệp và giải pháp ứng dụng tiến bộ kỹ thuật. Trong đó, giải pháp kỹ thuật có thể là sản phẩm, vật liệu, giống cy trồng, vật nuôi hoặc quy trình công nghệ; giải pháp quản lý là phương pháp tổ chức, điều hành công việc; giải pháp tác nghiệp là các phương pháp thực hiện nghiệp vụ chuyên môn; còn giải pháp ứng dụng tiến bộ kỹ thuật là việc áp dụng các giải pháp kỹ thuật [...] Đối với các đề tài khoa học, đề án khoa học và công trình khoa học – công nghệ, việc xét nghiệm thu thực hiện theo quy định của pháp luật về khoa học và công nghệ. Các đề tài chỉ được xem xét công nhận hiệu quả áp dụng và phạm vi ảnh hưởng khi đã được nghiệm thu đạt yêu cầu trở lên. [...] giải pháp kỹ thuật đã có vào thực tiễn.",
-                "score": 0.25635275
               }
             ]
           }
@@ -701,63 +701,63 @@
             "search_type": "Top",
             "items": [
               {
+                "title": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignme",
+                "summary": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignment.\n\nThe model powered the Linux kernel research we announced yesterday, and security teams at companies like Mozilla, Palo Alto Networks, Calif, and Cisco—alongside our own at OpenAI—are already putting it to work.\n\nGPT-6 Cyber is available to select Daybreak Red customers and we are expanding access over time.\n\nhttps://t.co/Nzab3Z1Td6",
+                "url": "https://x.com/OpenAI/status/2118390190246879554",
+                "source": "@OpenAI",
+                "date": "Thu Nov 05 17:09:13 +0000 2026",
+                "metrics": {
+                  "favorites": 21422,
+                  "retweets": 2001,
+                  "views": "4123385"
+                }
+              },
+              {
+                "title": "ChatGPT and Codex are helping engineers build for the physical world.",
+                "summary": "ChatGPT and Codex are helping engineers build for the physical world.\n\nWe’re sharing our progress across mechanical design, electrical engineering, and simulation—from helping our hardware teams iterate faster to testing new workflows with industry collaborators. https://t.co/b3rW9zYJGA",
+                "url": "https://x.com/OpenAI/status/2117692475775258785",
+                "source": "@OpenAI",
+                "date": "Tue Nov 03 18:56:45 +0000 2026",
+                "metrics": {
+                  "favorites": 8433,
+                  "retweets": 753,
+                  "views": "1398593"
+                }
+              },
+              {
+                "title": "Ever thought about building your own games? The Codex edition @modretro Chromatic is now on Supply Co.",
+                "summary": "Ever thought about building your own games? The Codex edition @modretro Chromatic is now on Supply Co.\n\nWith the ModRetro Chromatic plugin in Codex, you can design levels, animate sprites, and playtest on your handheld.\n\nSpeedrun checkout while Codex builds your ROM 😉 https://t.co/3OViRHh2Ry",
+                "url": "https://x.com/OpenAIDevs/status/2119864571733446774",
+                "source": "@OpenAIDevs",
+                "date": "Mon Nov 09 18:47:53 +0000 2026",
+                "metrics": {
+                  "favorites": 2959,
+                  "retweets": 289,
+                  "views": "543973"
+                }
+              },
+              {
+                "title": "You can now connect multiple local computers to the same dot and choose which one it uses for a task.",
+                "summary": "You can now connect multiple local computers to the same dot and choose which one it uses for a task.\n\nIt can build and test your app on a dedicated machine while you keep coding on your laptop. https://t.co/7NcrytEqHC",
+                "url": "https://x.com/OpenAIDevs/status/2119883176726409645",
+                "source": "@OpenAIDevs",
+                "date": "Mon Nov 09 20:01:49 +0000 2026",
+                "metrics": {
+                  "favorites": 6323,
+                  "retweets": 420,
+                  "views": "832797"
+                }
+              },
+              {
                 "title": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 do",
                 "summary": "I still don't understand why everyone is not using this yet. Thanks to it, a year ago I increased my income to 15,000 dollars a month\n\nAndrey Karpathy, co-founder of OpenAI, published a simple idea that got 25 million views: stop using AI to write code, use it to build a second brain\n\nYou point Claude Code to a folder, drop any source in there (an article, transcript, PDF) and Claude reads it, links it, and saves it into a living wiki of everything you know. It compounds like interest: the more you feed it, the smarter it gets\n\nHere is the gist:\n\nInstall Obsidian, create a vault, open it in Claude Code\n\nPaste the file with Karpathy's wiki idea and tell Claude to build it\n\nClaude creates three folders: raw for sources, wiki for its pages, CLAUDE\nwhich runs everything\n\nDrop any source into raw and say ingest this\n\nAsk questions across everything, forever\n\n5 minutes to set up, and you never start with an empty chat again\n\nThe full instructions can be found in the article below",
                 "url": "https://x.com/Bober_smart/status/2119070145284841481",
                 "source": "@Bober_smart",
                 "date": "Sat Nov 07 14:11:07 +0000 2026",
                 "metrics": {
-                  "favorites": 1181,
-                  "retweets": 128,
-                  "views": "95027"
-                }
-              },
-              {
-                "title": "This is f*cking insane. OpenAI CEO Sam Altman:",
-                "summary": "This is f*cking insane. OpenAI CEO Sam Altman:\n\n\"We are going to see 10-person billion-dollar companies pretty soon\n\nIf I were 22 right now, I would feel like the luckiest kid in history\"\n\nIn 22 seconds, he explains why the next billion-dollar company won't need a building full of people, just a few founders and their agents\n\nChatGPT → Codex → Agent Builder → Agents SDK → Evals → A 10-Person Company Run By Agents\n\nMost people will feel motivated for 3 minutes, then go back to scrolling\n\nThe few who act will start building their company this weekend\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nFind what to automate first\nhttps://t.co/CVaTL5jXHB\n\nHow companies put AI to work\nhttps://t.co/EfPautasVX\n\nCodex in the cloud\nhttps://t.co/wYBuugoGzU\n\nCodex skills\nhttps://t.co/KIwM8reiAt\n\nAgent Builder (agents without code)\nhttps://t.co/y5lVjIVWNE\n\nFunction calling (give your agents tools)\nhttps://t.co/hlQ0OrhsDr\n\nAgents SDK for JavaScript\nhttps://t.co/wNfa3neVSQ\n\nAgents SDK examples\nhttps://t.co/TnPiIML4if\n\nA customer service agent team you can copy\nhttps://t.co/9TYXiRzBm7\n\nVoice agents\nhttps://t.co/wBnMrKEKMd\n\nEvals (check your agents' work)\nhttps://t.co/tUueczMWZP\n\nAll of this costs $0\n\nThe 10-person billion-dollar company will be built by someone who opened these links, not someone who scrolled past them\n\nBookmark it and start with the first link tonight\n\nThen read how to set up the agent team behind a tiny company in the harness engineering guide below ↓",
-                "url": "https://x.com/godsystemsmd/status/2118707511813447984",
-                "source": "@godsystemsmd",
-                "date": "Fri Nov 06 14:10:09 +0000 2026",
-                "metrics": {
-                  "favorites": 488,
-                  "retweets": 93,
-                  "views": "80901"
-                }
-              },
-              {
-                "title": "This is f*cking insane. Geoffrey Hinton, the Nobel Prize winner they call the Godfather of AI, was asked what AI will do",
-                "summary": "This is f*cking insane. Geoffrey Hinton, the Nobel Prize winner they call the Godfather of AI, was asked what AI will do to jobs. His answer:\n\n\"For mundane intellectual labor, AI is just going to replace everybody\"\n\nIn 93 seconds, he explains why this time is different: one person with an AI assistant will do the work of 10\n\nThe new jobs everyone promises? If AI can do all routine thinking work, he asks what jobs are left to create\n\nThen the part that hits hardest. His niece answers complaint letters for a health service. Each one took her 25 minutes. Now AI writes it, she checks it, and it takes 5. So they need five times fewer of her\n\nHe agrees it won't be AI that takes your job, it'll be a person using AI. That just means far fewer people\n\n10 People → 1 Person + AI → Agents → Harness → Loops → The One Who Stays\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nA free AI course for non-programmers\nhttps://t.co/kJ0gTh3Izv\n\nAI Python for beginners, taught by Andrew Ng\nhttps://t.co/gMr707yc2w\n\nInteractive prompt engineering tutorial\nhttps://t.co/Oi636ZBdm7\n\nStarter projects you can deploy with Claude\nhttps://t.co/H2u5cLynrO\n\nThe OpenAI cookbook\nhttps://t.co/qTRsXLkwDf\n\nAn open-source agent that runs on your machine\nhttps://t.co/uzuyzkkmv7\n\nThe open-source coding agent\nhttps://t.co/MnI3JmABo6\n\nGemini in your terminal\nhttps://t.co/qwtWy9KPqY\n\nOpen-source AI developers\nhttps://t.co/3tqiSKlOtJ\n\nBuild resilient agents as graphs\nhttps://t.co/JaUpcX4a4M\n\nMicrosoft's agent framework\nhttps://t.co/19tcxjdDxu\n\nSecure sandboxes for your agents\nhttps://t.co/MMiAZxglJh\n\nLet your agents use any website\nhttps://t.co/93ea2svpPH\n\nBe the one person who runs the AI, not one of the nine it replaces\n\n95% will wait to find out if their job is next, the 5% who build a harness will be the one doing the work of ten\n\nBookmark it and start with the first link tonight\n\nThen use the guide below to build your harness before your job gets automated ↓",
-                "url": "https://x.com/0xSanabi/status/2119839282231722153",
-                "source": "@0xSanabi",
-                "date": "Mon Nov 09 17:07:24 +0000 2026",
-                "metrics": {
-                  "favorites": 390,
-                  "retweets": 67,
-                  "views": "154082"
-                }
-              },
-              {
-                "title": "This is f*cking insane. OpenAI CEO Sam Altman:",
-                "summary": "This is f*cking insane. OpenAI CEO Sam Altman:\n\n\"We are going to see 10-person billion-dollar companies pretty soon\n\nIf I were 22 right now, I would feel like the luckiest kid in history\"\n\nIn 22 seconds, he explains why the next billion-dollar company won’t need an office full of people, just a few founders and a team of agents\n\nChatGPT → Codex → Agent Builder → Agents SDK → Evals → A 10-Person Company Run By Agents\n\n99% people will feel motivated for 3 minutes, then keep scrolling...\n\nThe few who actually open the links will start building their company this weekend\n\nSave this before it vanishes from your feed\n\nEverything below is FREE:\n\nFind what to automate first\nhttps://t.co/YWHdgRnuzP\n\nHow companies put AI to work\nhttps://t.co/pvlQEhqgEz\n\nCodex in the cloud\nhttps://t.co/zZWUdokyny\n\nCodex skills\nhttps://t.co/2hdcb5KdBy\n\nAgent Builder (agents without code)\nhttps://t.co/4vG52j4T8i\n\nFunction calling (give your agents tools)\nhttps://t.co/UtjC1UOx2c\n\nAgents SDK for JavaScript\nhttps://t.co/uawnMmnI9p\n\nAgents SDK examples\nhttps://t.co/OWi0bWpApP\n\nA customer service agent team you can copy\nhttps://t.co/GRVZLYi4Pf\n\nVoice agents\nhttps://t.co/1SUmRzYIvA\n\nEvals (check your agents' work)\nhttps://t.co/sH92SCsLJF\n\nAll of this costs $0\n\nThe next 10-person billion-dollar company will be built by someone who opens these links tonight, not someone who scrolls past them\n\nBookmark it and start with the first link right now\n\nThen read how to set up the agent team behind a tiny company in the harness engineering guide below ↓",
-                "url": "https://x.com/shikamarutsai/status/2119542201944518994",
-                "source": "@shikamarutsai",
-                "date": "Sun Nov 08 21:26:54 +0000 2026",
-                "metrics": {
-                  "favorites": 1363,
-                  "retweets": 203,
-                  "views": "270993"
-                }
-              },
-              {
-                "title": "OpenAI is f*cking cooking... Sam Altman's team just shared 106 Codex plugins and skills for free, and most of them repla",
-                "summary": "OpenAI is f*cking cooking... Sam Altman's team just shared 106 Codex plugins and skills for free, and most of them replace a tool you already pay for\n\n62 plugins, 44 skills, 170,000 GitHub stars. the average team pays $2,000 a month for the apps these plug into. Codex now runs them for you at $0 extra\n\npick by the job that eats your week:\n\n→ shipping an app: build-ios-apps, build-web-apps, vercel\n→ getting paid: stripe, shopify\n→ design: figma, canva, adobe\n→ inbox and meetings: gmail, slack, zoom, granola\n→ keeping it safe: codex-security, sentry\n\nopen Codex, ask it to install the plugin by name, connect your account and give it the first task\n\nplugins: https://t.co/OTm3idf2a4\nskills: https://t.co/OIahJIqKYw\n\nmost people will scroll past this and keep paying for 10 apps. you just need one plugin to start\n\nthe whole stack, running live below ↓",
-                "url": "https://x.com/mika_systems/status/2119876302903636459",
-                "source": "@mika_systems",
-                "date": "Mon Nov 09 19:34:30 +0000 2026",
-                "metrics": {
-                  "favorites": 122,
-                  "retweets": 16,
-                  "views": "7583"
+                  "favorites": 1178,
+                  "retweets": 127,
+                  "views": "95332"
                 }
               }
             ]
@@ -786,7 +786,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Nguyên hàm của \\( x^2 \\) là:\n\n\\[\n\\int x^2 \\, dx = \\frac{x^3}{3} + C\n\\]\n\nTrong đó \\( C \\) là hằng số tích phân.",
+        "actual_text": "Nguyên hàm của \\( x^2 \\) là một hàm mà khi lấy đạo hàm sẽ cho ra \\( x^2 \\). Để tìm nguyên hàm, ta sử dụng công thức:\n\n\\[\n\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C\n\\]\n\nTrong trường hợp này, \\( n = 2 \\):\n\n\\[\n\\int x^2 \\, dx = \\frac{x^{2+1}}{2+1} + C = \\frac{x^3}{3} + C\n\\]\n\nVậy nguyên hàm của \\( x^2 \\) là \\( \\frac{x^3}{3} + C \\), trong đó \\( C \\) là hằng số tùy ý.",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -815,7 +815,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Tôi là một trợ lý nghiên cứu, có khả năng hỗ trợ bạn trong việc tìm kiếm thông tin, đọc và tóm tắt các bài viết, tìm kiếm bài đăng trên mạng xã hội, và tra cứu các tài liệu khoa học. Dưới đây là một số khả năng cụ thể của tôi:\n\n1. **Tìm kiếm thông tin trên web**: Tôi có thể tìm kiếm thông tin mới nhất về một chủ đề cụ thể.\n2. **Đọc và tóm tắt bài viết**: Nếu bạn cung cấp một URL, tôi có thể đọc và tóm tắt nội dung của bài viết đó.\n3. **Tìm kiếm bài đăng trên mạng xã hội**: Tôi có thể tìm kiếm các bài đăng từ một tài khoản cụ thể hoặc về một chủ đề nhất định trên Twitter.\n4. **Tìm kiếm tài liệu khoa học**: Tôi có thể tìm kiếm và đọc các bài báo khoa học từ arXiv.\n5. **Tra cứu chính sách công ty**: Tôi có thể tìm kiếm các quy định và chính sách nội bộ của công ty.\n\nNếu bạn có bất kỳ yêu cầu cụ thể nào, hãy cho tôi biết!",
+        "actual_text": "Tôi là một trợ lý nghiên cứu, có khả năng hỗ trợ bạn trong việc tìm kiếm thông tin, đọc và tóm tắt các bài viết, tìm kiếm bài đăng trên mạng xã hội, cũng như tìm kiếm các tài liệu khoa học. Dưới đây là một số khả năng cụ thể của tôi:\n\n1. **Tìm kiếm thông tin trên web**: Tôi có thể tìm kiếm thông tin mới nhất hoặc thông tin tổng quát về một chủ đề cụ thể.\n2. **Đọc và tóm tắt bài viết**: Nếu bạn cung cấp một URL, tôi có thể đọc nội dung và tóm tắt cho bạn.\n3. **Tìm kiếm bài đăng trên mạng xã hội**: Tôi có thể tìm kiếm các bài đăng từ một tài khoản cụ thể hoặc về một chủ đề nhất định trên Twitter.\n4. **Tìm kiếm tài liệu khoa học**: Tôi có thể tìm kiếm và đọc các bài báo khoa học từ arXiv.\n5. **Tìm kiếm mô hình và dữ liệu học máy**: Tôi có thể tìm kiếm các mô hình và tập dữ liệu trên Hugging Face Hub.\n\nNếu bạn có bất kỳ yêu cầu cụ thể nào, hãy cho tôi biết!",
         "case_failure_type": "unnecessary_tool",
         "observed_mismatch": null,
         "failure_type": null,
@@ -853,7 +853,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn muốn tóm tắt tweet của tài khoản nào?",
+              "question": "Bạn muốn tóm tắt tweet từ tài khoản nào?",
               "response_type": "text"
             }
           }
@@ -868,12 +868,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn muốn tóm tắt tweet của tài khoản nào?",
+            "question": "Bạn muốn tóm tắt tweet từ tài khoản nào?",
             "response_type": "text"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn muốn tóm tắt tweet của tài khoản nào?",
+            "question": "Bạn muốn tóm tắt tweet từ tài khoản nào?",
             "response_type": "text",
             "options": [],
             "awaiting_user": true
@@ -911,7 +911,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt không?",
+              "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt?",
               "response_type": "text"
             }
           }
@@ -926,12 +926,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt không?",
+            "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt?",
             "response_type": "text"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt không?",
+            "question": "Bạn vui lòng cung cấp URL của bài viết mà bạn muốn tóm tắt?",
             "response_type": "text",
             "options": [],
             "awaiting_user": true
@@ -1069,39 +1069,39 @@
             "timeframe": "day",
             "items": [
               {
-                "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
-                "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
-                "source": "vcresearch.berkeley.edu",
-                "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
-                "score": 0.29827207
+                "title": "AI and your job: Threat or opportunity?",
+                "url": "https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity",
+                "source": "fox10tv.com",
+                "summary": "MOBILE, Ala. (WALA) - Artificial intelligence is becoming a bigger part of everyday life, raising questions about what the technology could mean for workers and their jobs.\n\nSome economists believe AI poses a particular threat to entry-level and repetitive work, including call center, data entry and junior copywriting jobs, according to The Wall Street Journal. Those tasks may be easier to automate. [...] But AI could also create opportunities. A Bloomberg article points to potential job growth in construction and manufacturing as companies build data centers and produce the chips that power the technology. Some higher-skilled office workers could also benefit if AI helps them become more productive. [...] The long-term impact on jobs remains unclear, but workers can take steps to prepare. Exploring AI chatbots, writing assistants and other tools may help people find ways to work more efficiently and develop skills that complement the technology.",
+                "score": 0.42348245
               },
               {
-                "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
-                "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
-                "source": "siliconangle.com",
-                "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
-                "score": 0.26130545
+                "title": "Opinion: AI cannot replace being human – The Battalion",
+                "url": "https://thebatt.com/opinion/opinion-ai-cannot-replace-being-human",
+                "source": "thebatt.com",
+                "summary": "I understand the appeal. College is busy. Between classes, jobs, extracurriculars, leadership positions and trying to maintain some semblance of a social life, there are never enough hours in the day. AI makes things easier. It can generate an outline, rewrite a paragraph, summarize a reading or produce an entire essay before you have even finished your Celsius. But convenience does not necessarily facilitate education. [...] There is also something to be said about individuality. AI can generate an argument, imitate a writing style or suggest a creative direction, but our perspectives are developed through our own experiences, disagreements, mistakes and interpretations. The things that make our voices interesting are often the very things that cannot be neatly generated from a prompt. If we constantly rely on the same tools to tell us what to think and how to express it, we risk losing the differences that make [...] I am not asking anyone to abandon AI. I use it, and I recognize the benefits it provides. But I do think we need to become more conscientious about when we use it and what we are asking it to do for us. Let it help with the tedious tasks. Let it serve as a resource. But do not let it become a substitute for your own intellectual development.",
+                "score": 0.4031679
               },
               {
-                "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
-                "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
-                "source": "news.cornell.edu",
-                "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
-                "score": 0.22764139
+                "title": "Wisdom in the Age of AI - First Things",
+                "url": "https://firstthings.com/wisdom-in-the-age-of-ai",
+                "source": "firstthings.com",
+                "summary": "Also conspicuously absent was any serious attention to the possible spiritual warfare dimension of AI. Some prominent Christian thinkers, including Rod Dreher and Paul Kingsnorth, are genuinely concerned that AI could serve as a conduit for demonic forces. The Christian who is serious about the reality of spiritual warfare should at least consider this possibility. Not to do so is a failure of wisdom. After all, “our struggle is not against flesh and blood, but against the rulers, against the [...] Why so few theologians and a complete absence of biblical scholars, when the central theme of the conference was wisdom in the age of AI? If Scripture is our inerrant foundation for all life and practice, and Christian theologians and biblical scholars are uniquely trained to mine the sacred texts for wise insights, then shouldn’t these scholars be strongly represented? [...] rulers, against the authorities, against the powers of this dark world and against the spiritual forces of evil in the heavenly realms” (Eph. 6:12). Of course, many mainstream scholars will mock this as kooky fringe thinking, so it is to be expected that even devout Christian scholars might hesitate to voice this concern even in an informal context, much less present the idea at an academic conference. But it is just such anxious reticence that could gravely handicap the Church in our quest for",
+                "score": 0.23155381
               },
               {
-                "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
-                "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
-                "source": "nbcsandiego.com",
-                "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
-                "score": 0.202917
+                "title": "UA regents delay statement of intent on AI amid feedback",
+                "url": "https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback",
+                "source": "alaskasnewssource.com",
+                "summary": "Work on the university system’s intent language began in 2025, Taylor said, when faculty requested guidance from administration on the use of AI in the classroom.\n\nWhen complete, the document is designed not to act as policy, but simply to outline the approach the UA institution is taking toward AI, develop guiding principles and put forward expectations of future actions from the administration, including eventually coming up with actual policy. [...] The action was recommended by Chief Technology Officer Benjamin Shier, and pushes off the final decision on the university system’s AI intent language until February, or until requested by UA President Matt Cooper.\n\nTaylor described the feedback being received about the draft “AI Engaged” document as “passionate.” [...] FAIRBANKS, Alaska (KTUU/KTVF) - The University of Alaska (UA) Board of Regents delayed releasing a statement of intent covering the system’s use of artificial intelligence during its November meeting Friday, giving the information technology department time to incorporate feedback from faculty, staff and students into the document.",
+                "score": 0.22167104
               },
               {
-                "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
-                "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
-                "source": "federalnewsnetwork.com",
-                "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
-                "score": 0.19305643
+                "title": "Asia not riding but building the AI boom – GIS Reports",
+                "url": "https://www.gisreportsonline.com/r/asia-building-ai-boom",
+                "source": "gisreportsonline.com",
+                "summary": "The AI ecosystem can be generally separated between three elements: models, compute power and supply chains – with the U.S. and China competing and leading for the first two. Asian countries are looking at how they can stand out amid this intense East-West competition, while capitalizing on their strengths in technology manufacturing supply chains. This has led smaller economies to identify their competitive advantages while investing in novel applications for AI in various industries such as [...] Due to demographic realities, manufacturing and exports are essential to Asian economies. AI is expected to support transitions as each country manages declines in their populations and workforce while maintaining economic growth and prosperity.\n\nContact ustoday for tailored geopolitical insights and industry-specific advisory services.\n\n## Sign up for our newsletter\n\nReceive insights from our experts every week in your inbox.",
+                "score": 0.20856592
               }
             ]
           }
@@ -1124,9 +1124,21 @@
                 "source": "@ai_with_jyoti",
                 "date": "Sun Nov 08 03:28:41 +0000 2026",
                 "metrics": {
-                  "favorites": 8038,
-                  "retweets": 1134,
-                  "views": "643929"
+                  "favorites": 8045,
+                  "retweets": 1135,
+                  "views": "645950"
+                }
+              },
+              {
+                "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2, designed to tackle the most daunting technical challenges.",
+                "summary": "Introducing Claude Fable 5.2 and Claude Mythos 5.2, designed to tackle the most daunting technical challenges.\n\nThey’re capable collaborators on ambitious projects in many fields, and show improvements in areas like coding, reasoning, and vision. https://t.co/jP0AutLxXb",
+                "url": "https://x.com/claudeai/status/2119867114450268322",
+                "source": "@claudeai",
+                "date": "Mon Nov 09 18:57:59 +0000 2026",
+                "metrics": {
+                  "favorites": 86124,
+                  "retweets": 8221,
+                  "views": "11649400"
                 }
               },
               {
@@ -1136,45 +1148,33 @@
                 "source": "@HoodieFade_",
                 "date": "Mon Nov 09 16:09:02 +0000 2026",
                 "metrics": {
-                  "favorites": 3024,
-                  "retweets": 586,
-                  "views": "630628"
+                  "favorites": 4835,
+                  "retweets": 910,
+                  "views": "884735"
                 }
               },
               {
-                "title": "This is f*cking insane. Geoffrey Hinton, the Nobel Prize winner they call the Godfather of AI, was asked what AI will do",
-                "summary": "This is f*cking insane. Geoffrey Hinton, the Nobel Prize winner they call the Godfather of AI, was asked what AI will do to jobs. His answer:\n\n\"For mundane intellectual labor, AI is just going to replace everybody\"\n\nIn 93 seconds, he explains why this time is different: one person with an AI assistant will do the work of 10\n\nThe new jobs everyone promises? If AI can do all routine thinking work, he asks what jobs are left to create\n\nThen the part that hits hardest. His niece answers complaint letters for a health service. Each one took her 25 minutes. Now AI writes it, she checks it, and it takes 5. So they need five times fewer of her\n\nHe agrees it won't be AI that takes your job, it'll be a person using AI. That just means far fewer people\n\n10 People → 1 Person + AI → Agents → Harness → Loops → The One Who Stays\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nA free AI course for non-programmers\nhttps://t.co/kJ0gTh3Izv\n\nAI Python for beginners, taught by Andrew Ng\nhttps://t.co/gMr707yc2w\n\nInteractive prompt engineering tutorial\nhttps://t.co/Oi636ZBdm7\n\nStarter projects you can deploy with Claude\nhttps://t.co/H2u5cLynrO\n\nThe OpenAI cookbook\nhttps://t.co/qTRsXLkwDf\n\nAn open-source agent that runs on your machine\nhttps://t.co/uzuyzkkmv7\n\nThe open-source coding agent\nhttps://t.co/MnI3JmABo6\n\nGemini in your terminal\nhttps://t.co/qwtWy9KPqY\n\nOpen-source AI developers\nhttps://t.co/3tqiSKlOtJ\n\nBuild resilient agents as graphs\nhttps://t.co/JaUpcX4a4M\n\nMicrosoft's agent framework\nhttps://t.co/19tcxjdDxu\n\nSecure sandboxes for your agents\nhttps://t.co/MMiAZxglJh\n\nLet your agents use any website\nhttps://t.co/93ea2svpPH\n\nBe the one person who runs the AI, not one of the nine it replaces\n\n95% will wait to find out if their job is next, the 5% who build a harness will be the one doing the work of ten\n\nBookmark it and start with the first link tonight\n\nThen use the guide below to build your harness before your job gets automated ↓",
-                "url": "https://x.com/0xSanabi/status/2119839282231722153",
-                "source": "@0xSanabi",
-                "date": "Mon Nov 09 17:07:24 +0000 2026",
+                "title": "🥇 @AnthropicAI's Fable 5.2 takes the top spot on our Remote Labor Index with @CAIS, our leaderboard which compares AI ag",
+                "summary": "🥇 @AnthropicAI's Fable 5.2 takes the top spot on our Remote Labor Index with @CAIS, our leaderboard which compares AI agents' work head-to-head with work by human professionals on real-world remote tasks.\n\nThe model successfully automates 41.3% of projects, nearly doubling the performance of the next-best model Opus 5.5, a major leap in AI's ability to handle real-world work.\n\nA closer look at where the biggest jumps are coming from 🧵",
+                "url": "https://x.com/ScaleAILabs/status/2119914701736075489",
+                "source": "@ScaleAILabs",
+                "date": "Mon Nov 09 22:07:05 +0000 2026",
                 "metrics": {
-                  "favorites": 390,
-                  "retweets": 67,
-                  "views": "154123"
+                  "favorites": 1000,
+                  "retweets": 130,
+                  "views": "197931"
                 }
               },
               {
-                "title": "If you design with AI, this is all you need",
-                "summary": "If you design with AI, this is all you need\n\n1. https://t.co/Lp2oSiR6tL — cheaper than lovable\n2. https://t.co/N0kni8z7CJ — premium website prompts: 800+ 3d websites, motion sections. Paste into Claude, ship.\n3. https://t.co/PN63CrMEfd — landing page inspiration done right.\n4. https://t.co/o5r6DKFHY9— cool gallery for web design inspo\n5. https://t.co/29Ou8HWy3W — top notch landings\n6. https://t.co/k4ZIrLF8h4 — fonts behind brands\n7. https://t.co/AUhGBZTOAK — award websites\n8. https://t.co/NWKmL8054V — mobile UI animations\n\nsave these for your next project",
-                "url": "https://x.com/viktoroddy/status/2117585451502719144",
-                "source": "@viktoroddy",
-                "date": "Tue Nov 03 11:51:29 +0000 2026",
+                "title": "the last thing jensen huang saw before leaking nvidia's AI blueprint to china. https://t.co/BmtD6gmKTQ",
+                "summary": "the last thing jensen huang saw before leaking nvidia's AI blueprint to china. https://t.co/BmtD6gmKTQ",
+                "url": "https://x.com/voidyaps/status/2119567618889908485",
+                "source": "@voidyaps",
+                "date": "Sun Nov 08 23:07:54 +0000 2026",
                 "metrics": {
-                  "favorites": 2272,
-                  "retweets": 270,
-                  "views": "135097"
-                }
-              },
-              {
-                "title": "YOU WON'T HAVE A JOB IN 2027 IF YOU DON'T LEARN THIS",
-                "summary": "YOU WON'T HAVE A JOB IN 2027 IF YOU DON'T LEARN THIS\n\n7 GitHub repos that will save you from being replaced by AI:\n\n1. career-ops (80k stars)\nan agent that scans job boards, scores every role against your CV and tailors your resume for each one\nhttps://t.co/gfHWTpxqwo\n\n2. Agent Reach (107k stars)\ngives your agent eyes on YouTube, Reddit, GitHub, LinkedIn and the open web with one command\nhttps://t.co/5maRqwTETv\n\n3. OfficeCLI (32k stars)\nlets agents create and edit Word, Excel and PowerPoint files without Office installed\nhttps://t.co/mjUQgCM3IE\n\n4. Hypit (26k stars)\nclones any viral video into an editable workflow - footage, captions, b-roll, effects\nhttps://t.co/v2n0eDvXG7\n\n5. AI Website Cloner (37k stars)\nturns any website URL into a clean Next.js app you can edit\nhttps://t.co/LSo9m2bDwo\n\n6. Strix (72k stars)\nautonomous AI hackers that find vulnerabilities in your code and prove them with working exploits\nhttps://t.co/8BQBTEFZiY\n\n7. Paperclip (110k stars)\nrun a whole company of AI agents - org chart, budgets, approvals, one dashboard\nhttps://t.co/izqm08Sr5G\n\nwant more videos like this?\n\nlike it, share it with a friend\nand tell me in the comments which agents you want me to visualize next",
-                "url": "https://x.com/thegreatest_sv/status/2117687388214272339",
-                "source": "@thegreatest_sv",
-                "date": "Tue Nov 03 18:36:32 +0000 2026",
-                "metrics": {
-                  "favorites": 1874,
-                  "retweets": 316,
-                  "views": "104464"
+                  "favorites": 48186,
+                  "retweets": 2598,
+                  "views": "718031"
                 }
               }
             ]
@@ -1203,7 +1203,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Dưới đây là một hàm Python tính số Fibonacci bằng phương pháp đệ quy:\n\n```python\ndef fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\n# Ví dụ sử dụng\nn = 10\nprint(f\"Fibonacci của {n} là: {fibonacci(n)}\")\n```\n\nHàm `fibonacci` nhận một số nguyên `n` và trả về số Fibonacci tương ứng. Nếu `n` là 0, hàm trả về 0; nếu `n` là 1, hàm trả về 1. Đối với các giá trị lớn hơn 1, hàm gọi chính nó để tính tổng của hai số Fibonacci trước đó.",
+        "actual_text": "Dưới đây là một hàm Python tính số Fibonacci bằng phương pháp đệ quy:\n\n```python\ndef fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\n# Ví dụ sử dụng\nn = 10\nprint(f\"Fibonacci({n}) = {fibonacci(n)}\")\n```\n\nHàm `fibonacci` nhận một số nguyên `n` và trả về số Fibonacci tương ứng. Nếu `n` là 0, hàm trả về 0; nếu `n` là 1, hàm trả về 1. Đối với các giá trị lớn hơn, hàm gọi chính nó để tính tổng của hai số Fibonacci trước đó.",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -1285,8 +1285,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 960,
-                  "views": "401495"
+                  "retweets": 1230,
+                  "views": "521890"
                 }
               },
               {
@@ -1297,8 +1297,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 277,
-                  "views": "372015"
+                  "retweets": 371,
+                  "views": "455834"
                 }
               },
               {
@@ -1309,8 +1309,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1242,
-                  "views": "356885"
+                  "retweets": 1894,
+                  "views": "436475"
                 }
               },
               {
@@ -1321,8 +1321,8 @@
                 "date": "Tue Nov 10 03:13:39 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 238,
-                  "views": "336946"
+                  "retweets": 314,
+                  "views": "412835"
                 }
               },
               {
@@ -1333,8 +1333,8 @@
                 "date": "Tue Nov 10 03:13:25 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 400,
-                  "views": "307898"
+                  "retweets": 695,
+                  "views": "381677"
                 }
               }
             ]
@@ -1435,18 +1435,18 @@
                 "score": 0.38998842
               },
               {
-                "title": "NVIDIA launches GR00T 2 and Isaac Lab 3.0 at CoRL - The Robot Report",
-                "url": "https://www.therobotreport.com/nvidia-launches-gr00t-2-isaac-lab-3-0-corl",
-                "source": "therobotreport.com",
-                "summary": "Walden Robotics is using Isaac Sim’s photorealistic rendering to train and evaluate its general-purpose robot in virtual environments for manufacturing and logistics. Dexmate is exploring how coding agents can rehearse and refine manipulation strategies in Isaac Sim before executing them on its Vega robot. [...] Robotics developers are already putting NVIDIA’s latest technology to the test. A number of developers are using Isaac Lab 3.0 and Newton. At CoRL, Skild AI announced Scalable Throughput-optimized Engine for Embodied Learning, or STEEL, a new rigid-body physics solver built on Newton to accelerate robot training with Isaac Lab. [...] Nexuni is testing GR00T 2 for robotic laundry. Foxconn is applying GR00T 2 to factory automation for server manufacturing, and Siemens is evaluating it across industrial use cases.\n\nMicroAGI is using GR00T 2, post-trained through reinforcement learning, to perform Ethernet cable swapping with a YAM robotic arm. Its agentic robotics approach automates the creation and calibration of simulation environments using Isaac Lab 3.0 and Newton, where the policy is trained.",
-                "score": 0.37387636
-              },
-              {
                 "title": "Kenwood High School JROTC Robotics Program earns regional recognition - ClarksvilleNow.com",
                 "url": "https://clarksvillenow.com/local/kenwood-high-school-jrotc-robotics-program-earns-regional-recognition",
                 "source": "clarksvillenow.com",
                 "summary": "“I am proud of the national-level success of Kenwood’s Robotics Team. It reflects the faculty, JROTC instructors, and cadets’ hard work and dedication toward creating an elite mindset at the school,” Lightner said.\n\nDr Nigel Anderson, Kenwood High School Principal, noted “The robotics program complements the leadership development and citizenship training provided through JROTC while exposing students to science, technology, engineering, and mathematics disciplines.” [...] CLARKSVILLE TN – The Kenwood High School JROTC Robotics Program has grown from a single robotics team into a four-team program that is competing successfully at regional and national-level events. The program currently fields Teams 26163X, 26163A, 26163L, and 26163S, providing students with opportunities to develop skills in engineering, programming, and problem-solving. [...] During the current robotics’ competition season, Team 26163X captured first place at the Tennessee State Fair Robotics Competition. The team followed that performance with another first-place finish at a competition in Elizabethton, Tennessee, where it also received a technical award recognizing excellence in robot design and engineering.",
                 "score": 0.36473283
+              },
+              {
+                "title": "From Folsom Robotics Lab To Published Author: Teen Publishes Teaching Tool – Folsom Times",
+                "url": "https://folsomtimes.com/from-folsom-robotics-lab-to-published-author-teen-publishes-teaching-tool",
+                "source": "folsomtimes.com",
+                "summary": "The drawings come from computer-aided design (CAD) models Bellum created for his Folsom robotics team, Cognitaur 29712C. One set of drawings traces power from a motor through a shaft to the wheel it turns. Another slows down something spectators see in an instant. How does a robot lift a game piece without tipping it forward?\n\nAdvertisement [...] Bellum has taught programming to more than 400 students and mentored younger robotics teams. His health technology project, Dermalytix, earned him recognition as a 2026 Conrad Innovator. His team also took third place in the Robotics Education & Competition Foundation’s international high school CAD challenge for the Gravitrack Orb, a game piece with a weight that shifts as it rolls. With the atlas, a coach can bring one of Bellum’s robot designs to a classroom he may never visit. [...] Advertisement\n\nBellum, 16, marked National STEM Day on Nov. 8 by sharing CAD Atlas: A Visual Guide to Robot Design. The Laurel Springs School junior published the 154-page illustrated guide for fellow robotics students, teachers, team coaches and anyone curious about how a competition robot works. The book draws on more than 25 robot designs and 200 hours Bellum has spent modeling robots.",
+                "score": 0.30991113
               }
             ]
           }
@@ -1526,9 +1526,9 @@
                 "source": "@karpathy",
                 "date": "Sat Nov 07 17:07:31 +0000 2026",
                 "metrics": {
-                  "favorites": 9164,
-                  "retweets": 771,
-                  "views": "938478"
+                  "favorites": 9176,
+                  "retweets": 772,
+                  "views": "942191"
                 }
               },
               {
@@ -1538,9 +1538,9 @@
                 "source": "@karpathy",
                 "date": "Sun Nov 01 18:14:46 +0000 2026",
                 "metrics": {
-                  "favorites": 52338,
-                  "retweets": 4834,
-                  "views": "5716400"
+                  "favorites": 52348,
+                  "retweets": 4835,
+                  "views": "5721142"
                 }
               },
               {
@@ -1552,7 +1552,7 @@
                 "metrics": {
                   "favorites": 0,
                   "retweets": 3287,
-                  "views": "40226"
+                  "views": "40227"
                 }
               }
             ]
@@ -1708,8 +1708,8 @@
                 "date": "Tue Nov 10 03:30:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 960,
-                  "views": "402061"
+                  "retweets": 1231,
+                  "views": "522034"
                 }
               },
               {
@@ -1720,8 +1720,8 @@
                 "date": "Tue Nov 10 03:21:06 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 277,
-                  "views": "372015"
+                  "retweets": 371,
+                  "views": "455944"
                 }
               },
               {
@@ -1732,8 +1732,8 @@
                 "date": "Tue Nov 10 03:16:09 +0000 2026",
                 "metrics": {
                   "favorites": 0,
-                  "retweets": 1245,
-                  "views": "356885"
+                  "retweets": 1894,
+                  "views": "436475"
                 }
               }
             ]
@@ -1831,11 +1831,11 @@
                 "score": 0.7147281
               },
               {
-                "title": "OpenAI kicks off charm offensive to change voters' view of data centers | Reuters",
-                "url": "https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05",
-                "source": "reuters.com",
-                "summary": "SAN FRANCISCO, Nov 5 (Reuters) - Stunning ​victories by Democrats in US midterm elections this week have been interpreted by many as Americans repudiating tech ‌industry plans to build data centers across the country. OpenAI has now embarked on new strategies to change their minds.\n\nThe AI lab on Thursday laid out policies — in the works since August — intended to help the company build more trust with local communities and convince them that data centers will ​benefit them. [...] OpenAI officials, along with many of their peers in tech, ​have spent the last ⁠two years trying to build ties with the administration of US President Donald Trump in hopes of shaping federal policy around AI.\n\nOpenAI CEO Sam Altman donated $1 million to Trump's inaugural committee and later attended Trump's second inauguration. Last year, Brockman donated $25 million in his personal capacity to ⁠a Trump ​super PAC. [...] The Reuters Daily Briefing newsletter provides all the news you need to start your day. Sign up here.\n\nOpenAI said it will no longer use non-disclosure agreements with public officials when negotiating or discussing future sites, although ​proprietary information would still be under wraps. It will also give residents access to construction plans ⁠and their potential effect on traffic, noise and lighting.",
-                "score": 0.66569364
+                "title": "OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC",
+                "url": "https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html",
+                "source": "cnbc.com",
+                "summary": "OpenAI CFO Sarah Friar on Friday said the company will continue to invest in artificial intelligence infrastructure, even after voters strongly rebuked data centers during Tuesday's midterm elections.",
+                "score": 0.65914243
               },
               {
                 "title": "OpenAI employees warned about operational security lapses for years, sources say | Reuters",

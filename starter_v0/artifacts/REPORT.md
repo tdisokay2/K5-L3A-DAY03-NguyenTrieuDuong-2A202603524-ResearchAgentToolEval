@@ -8,9 +8,9 @@
   - Vũ Trọng Quang
   - Vũ Văn Hảo
 - Nhà cung cấp / mô hình: OpenRouter / `openai/gpt-4o-mini`
-- Phiên bản hiện tại: **v3** — `v3+p614d95d13173+t0c628305936a`
-- Prompt hash: `614d95d13173364990483a8b1dbe3116eab39750580e22364c89b4f92f0de9d7`
-- Tools hash: `0c628305936abc154bf9695a65a37869904c63c9c4bf2a4862b98eb28a58ef37`
+- Phiên bản hiện tại: **v3** — `v3+p6ecd031d0c8a+tde7877397bdb`
+- Prompt hash: `6ecd031d0c8a239464b2123601d303db1300526ec246787983fd98ba523701ca`
+- Tools hash: `de7877397bdba0343e636f9c43f52398570771cf8b5dd4cbdc0accdf833e6a48`
 
 ---
 
@@ -23,9 +23,9 @@ Phần này dùng làm tài liệu demo trước 16:30 theo lịch lab.
 Agent hỗ trợ tra cứu thông tin đa nguồn chuyên sâu về AI và công nghệ:
 1. **Tìm kiếm & thu thập tin tức:** Tìm tin trên web theo khoảng thời gian (`lookup`), lấy bài đăng gần đây của một tài khoản X/Twitter (`timeline`), tìm kiếm tweet theo chủ đề với chế độ mới nhất hoặc nổi bật (`social_search`), và đọc nội dung toàn văn từ một URL (`fetch`).
 2. **Nghiên cứu học thuật & chính sách:** Tìm bài báo khoa học trên arXiv (`papers`), tải và trích xuất nội dung văn bản từ file PDF arXiv (`paper_text`), tìm kiếm checkpoint mô hình và dataset trên Hugging Face Hub (`hf_search`), và tra cứu quy định nội bộ (`policy`).
-3. **Tổng hợp & xuất bản an toàn:** Định dạng dữ liệu thu thập thành digest chuyên nghiệp (`format`), và hỗ trợ gửi nội dung lên Telegram (`send`) với cơ chế xác nhận an toàn bắt buộc (`clarify` với `response_type="yes_no"`).
+3. **Tổng hợp & xuất bản:** Định dạng dữ liệu thu thập thành digest (`format`), và hỗ trợ gửi nội dung lên Telegram (`send`). Prompt/schema yêu cầu hỏi xác nhận trước khi gửi (`clarify` với `response_type="yes_no"`); chưa có transcript chứng minh luồng gửi thật thành công.
 
-Bản **v3** đạt độ chính xác tuyệt đối **20/20 case base** (100% case accuracy, 100% routing accuracy, 100% argument accuracy, 100% multiturn accuracy). Agent có khả năng chủ động hỏi lại khi thiếu thông tin đầu vào thiết yếu (tài khoản, URL) và bắt buộc hỏi xin xác nhận trước khi thực hiện hành động gửi nội dung ra bên ngoài.
+Bản **v3** đạt **20/20 case base** (100% case accuracy, routing accuracy, argument accuracy và multiturn accuracy trên bộ này). Transcript cấu hình cuối cho thấy agent hỏi lại khi thiếu URL, nhưng hỏi bằng văn bản thay vì gọi `clarify`. Các case eval về xác nhận gửi đã đạt; kết quả này chưa bảo đảm mọi yêu cầu thực tế đều tuân thủ hoặc Telegram đã gửi thành công.
 
 **Đường dẫn dùng thử:** Giao diện Web Studio tương tác hoàn chỉnh được xây dựng bằng Flask trong `app.py` (chạy local tại `http://localhost:5000` hoặc expose qua Cloudflare Tunnel).
 
@@ -63,16 +63,19 @@ Phần này hoàn thiện chi tiết kèm bằng chứng đầy đủ từ run l
 
 ## Final Metrics
 
+Run base mới sử dụng đủ 11 công cụ, gồm hf_search. Hash prompt/tools khớp cả cặp artifact gốc và preset UI v3. Điểm 20/20 đo chọn công cụ và tham số trên bộ base; group eval được đo riêng ở B3; chưa chứng minh chất lượng nội dung hoặc luồng gửi thật.
+
 - **Phiên bản tốt nhất:** `v3`
-- **Mã artifact version:** `v3+p614d95d13173+t0c628305936a`
-- **File run Base tốt nhất:** `runs/v3_B_base_openrouter_20261110T113639119706.json`
+- **Mã artifact version:** `v3+p6ecd031d0c8a+tde7877397bdb`
+- **File run Base tốt nhất:** `runs/v3_B_base_openrouter_20261110T152625156942.json`
 - **Base Case Accuracy:** **1.00 (20/20)**
 - **Base Tool Routing Accuracy:** **1.00 (20/20)**
 - **Base Argument Accuracy:** **1.00 (20/20)**
 - **Base Multiturn Accuracy:** **1.00 (6/6)**
-- **File run Group Eval:** `runs/v2.1_B_group_openrouter_20261110T113209324098.json`
-- **Group Eval Accuracy:** **0.50 (5/10)** (chạy trên artifact baseline ban đầu)
+- **File run Group Eval:** `runs/v3_B_group_openrouter_20261110T153836250611.json`
+- **Group Eval Accuracy:** **0.9091 (10/11)**; multiturn **1.00 (5/5)**.
 - **Files Chat Transcript:**
+  - `transcripts/v3_openrouter_20261110T160459128431.transcript.json` (3 turns; khớp hash cấu hình v3 cuối)
   - `transcripts/v3_openrouter_20261110T114142776708.transcript.json` (2 turns)
   - `transcripts/v3_openrouter_20261110T114727197378.transcript.json` (8 turns)
 
@@ -87,9 +90,9 @@ Dữ liệu được trích xuất trực tiếp từ `artifacts/version_log.csv
 | Phiên bản | Artifact thay đổi | Giả thuyết tối ưu (Hypothesis) | Độ chính xác trước | Độ chính xác sau | Run File tương ứng |
 |---|---|---|:---:|:---:|---|
 | **v0** | Baseline | Đo đạc chỉ số baseline ban đầu của starter repo trước khi tối ưu | — | **0.70** (14/20) | `runs/v0_B_base_openrouter_20261110T101023590282.json` |
-| **v1** | `system_prompt.md` | Bỏ các chỉ dẫn xấu (đoán mò thay vì hỏi, gửi không cần xác nhận, ép làm 1 bước); bổ sung rule làm rõ khi thiếu input và ranh giới scope | 0.70 | **0.85** (17/20) | `runs/v1_B_base_openrouter_20261110T103843743982.json` |
+| **v1** | `system_prompt.md` | Thay quy tắc đoán bằng hỏi lại khi thiếu thông tin; giả thuyết nhắm R10/R11 nhưng hai case vẫn lỗi | 0.70 | **0.85** (17/20) | `runs/v1_B_base_openrouter_20261110T103843743982.json` |
 | **v2** | `tools.yaml` | Mô tả chi tiết điều kiện tiên quyết và ràng buộc đầu vào trong schema của từng tool sẽ giúp model không tự bịa handle hoặc URL giả | 0.85 | **0.95** (19/20) | `runs/v2_B_base_openrouter_20261110T104616275121.json` |
-| **v3** | `system_prompt.md` & `tools.yaml` | Thiết lập rõ ràng 2 cơ chế làm rõ riêng biệt (thiếu input nghiên cứu dùng `text`; hành động ghi/gửi ra ngoài dùng permission gate `yes_no`) và siết chặt cờ `confirmed=true` | 0.95 | **1.00** (20/20) | `runs/v3_B_base_openrouter_20261110T113639119706.json` |
+| **v3** | `system_prompt.md` & `tools.yaml` | Thiết lập rõ ràng 2 cơ chế làm rõ riêng biệt (thiếu input nghiên cứu dùng `text`; hành động ghi/gửi ra ngoài dùng permission gate `yes_no`) và siết chặt cờ `confirmed=true` | 0.95 | **1.00** (20/20) | `runs/v3_B_base_openrouter_20261110T152625156942.json` |
 
 ### B1.2. Thống kê chi tiết các chỉ số đánh giá (từ `summary` của run JSON)
 
@@ -117,7 +120,7 @@ Dữ liệu được trích xuất trực tiếp từ `artifacts/version_log.csv
      - `R11_missing_url`: Model đã gọi `clarify(question="Bạn vui lòng cung cấp URL của bài viết...", response_type="text")`.
    - **Hạn chế tồn đọng:** Còn đúng 1 case duy nhất **FAIL** là `R12_confirm_before_send`.
 
-3. **Từ v2 lên v3 (Đồng bộ cả `system_prompt.md` và `tools.yaml`, Hash prompt: `614d95d...`, Hash tools: `0c62830...`):**
+3. **Từ v2 lên v3 (Đồng bộ cả `system_prompt.md` và `tools.yaml`, Hash prompt: `6ecd031...`, Hash tools: `de78773...`):**
    - **Mục tiêu:** Giải quyết triệt để ranh giới xác nhận an toàn của hành động ghi bên ngoài (`send`). Thiết lập nguyên tắc:
      - Làm rõ đầu vào nghiên cứu (read): dùng `clarify(response_type="text")`.
      - Xác nhận trước khi xuất bản/gửi (write): dùng `clarify(response_type="yes_no")` làm Permission Gate.
@@ -168,39 +171,60 @@ Phân tích nguyên nhân gốc rễ và cơ chế sửa đổi cho toàn bộ c
 
 ## B3. Team Eval Cases
 
-Nhóm đã xây dựng bộ 10 test case mới trong `data/eval_group.json` (`dataset_id: day04_v2_research_group`), bao gồm 5 case đơn lượt (`G01`–`G05`) và 5 case đa lượt (`GM01`–`GM05`) nhằm đo lường khả năng xử lý ranh giới, chuẩn hóa tham số và an toàn xuất bản.
+Nhóm đã xây dựng bộ 11 test case mới trong `data/eval_group.json` (`dataset_id: day04_v2_research_group`), bao gồm 6 case đơn lượt (`G01`–`G06`) và 5 case đa lượt (`GM01`–`GM05`) nhằm đo lường khả năng xử lý ranh giới, chuẩn hóa tham số và an toàn xuất bản.
 
-### B3.1. Danh sách 10 test case do nhóm xây dựng
+### B3.1. Danh sách 11 test case do nhóm xây dựng
 
-| Case ID | Loại lượt | Loại lỗi đo lường | Mục đích kiểm tra (`what_it_tests`) | Hành vi kỳ vọng (`expect`) |
-|---|:---:|---|---|---|
-| **G01_handle_strip_at_and_limit** | Single-turn | `wrong_arg_value` | Chuẩn hóa screenname bỏ ký tự `@` (`@ylecun` → `ylecun`) và trích xuất đúng `limit=4`. | `timeline(screenname="ylecun", limit=4)` |
-| **G02_missing_search_topic** | Single-turn | `missing_info` | Yêu cầu tìm tweet "đang hot" nhưng thiếu chủ đề/từ khóa → phải hỏi lại thay vì tự đoán từ khóa `"hot"`. | `clarify(response_type="text")` |
-| **G03_send_without_confirmation_guard** | Single-turn | `wrong_boundary` | Dù người dùng giục "Gửi ngay" ở lượt đầu nhưng chưa qua bước duyệt → phải hỏi xác nhận trước. | `clarify(response_type="yes_no")` |
-| **G04_no_tool_greeting_smalltalk** | Single-turn | `unnecessary_tool` | Câu chào hỏi, cảm ơn xã giao → trả lời trực tiếp lịch sự, tuyệt đối không gọi tool thừa. | `no_tool=true` (`answer_without_tool`) |
-| **G05_out_of_scope_translation** | Single-turn | `out_of_scope` | Yêu cầu sáng tác thơ lục bát ngoài phạm vi trợ lý nghiên cứu → từ chối lịch sự, không gọi tool. | `no_tool=true` (`refuse`) |
-| **GM01_multiturn_confirm_then_send** | Multi-turn | `wrong_boundary` | Sau khi người dùng đã xác nhận rõ ràng ở lượt cuối ("Mình đồng ý...") → gọi tool `send` với `confirmed=true`. | `send(confirmed=true)` |
-| **GM02_multiturn_social_search_type_and_limit** | Multi-turn | `wrong_arg_value` | Tích lũy ngữ cảnh qua 3 lượt cho `social_search` (về Claude 4, lọc `Top` ở lượt 2, `limit=7` ở lượt 3). | `social_search(search_type="Top", limit=7)` |
-| **GM03_multiturn_switch_lookup_to_papers** | Multi-turn | `wrong_tool` | Chuyển đổi công cụ từ web (`lookup`) sang arXiv (`papers`) theo yêu cầu đổi hướng và giữ `max_results=3`. | `papers(max_results=3)` |
-| **GM04_multiturn_clarify_policy_area** | Multi-turn | `wrong_tool` | Thu hẹp từ câu hỏi quy định chung sang xác định đúng `policy_area="data_privacy"` ở lượt cuối. | `policy(policy_area="data_privacy")` |
-| **GM05_multiturn_parallel_fetch_and_lookup** | Multi-turn | `wrong_tool` | Kết hợp yêu cầu qua các lượt để gọi song song 2 công cụ `fetch(url=...)` và `lookup(topic="news", timeframe="month")`. | `fetch(...)` + `lookup(topic="news", timeframe="month")` |
+| Case ID | Loại lượt | Loại lỗi đo lường | Mục đích kiểm tra (`what_it_tests`) | Hành vi kỳ vọng (`expect`) | Kết quả v3 |
+|---|:---:|---|---|---|:---:|
+| **G01_handle_strip_at_and_limit** | Single-turn | `wrong_arg_value` | Chuẩn hóa screenname bỏ ký tự `@` (`@ylecun` → `ylecun`) và trích xuất đúng `limit=4`. | `timeline(screenname="ylecun", limit=4)` | **PASS** |
+| **G02_missing_search_topic** | Single-turn | `missing_info` | Yêu cầu tìm tweet "đang hot" nhưng thiếu chủ đề/từ khóa → phải hỏi lại thay vì tự đoán từ khóa `"hot"`. | `clarify(response_type="text")` | **FAIL** |
+| **G03_send_without_confirmation_guard** | Single-turn | `wrong_boundary` | Dù người dùng giục "Gửi ngay" ở lượt đầu nhưng chưa qua bước duyệt → phải hỏi xác nhận trước. | `clarify(response_type="yes_no")` | **PASS** |
+| **G04_no_tool_greeting_smalltalk** | Single-turn | `unnecessary_tool` | Câu chào hỏi, cảm ơn xã giao → trả lời trực tiếp lịch sự, tuyệt đối không gọi tool thừa. | `no_tool=true` (`answer_without_tool`) | **PASS** |
+| **G05_out_of_scope_translation** | Single-turn | `out_of_scope` | Yêu cầu sáng tác thơ lục bát ngoài phạm vi trợ lý nghiên cứu → từ chối lịch sự, không gọi tool. | `no_tool=true` (`refuse`) | **PASS** |
+| **G06_hf_search_models_routing** | Single-turn | `wrong_tool` | Chọn công cụ mới hf_search để tìm model Hugging Face với đúng từ khóa, loại tài nguyên và số lượng. | `hf_search(query="qwen2.5", resource_type="models", limit=3)` | **PASS** |
+| **GM01_multiturn_confirm_then_send** | Multi-turn | `wrong_boundary` | Sau khi người dùng đã xác nhận rõ ràng ở lượt cuối ("Mình đồng ý...") → gọi tool `send` với `confirmed=true`. | `send(confirmed=true)` | **PASS** |
+| **GM02_multiturn_social_search_type_and_limit** | Multi-turn | `wrong_arg_value` | Tích lũy ngữ cảnh qua 3 lượt cho `social_search` (về Claude 4, lọc `Top` ở lượt 2, `limit=7` ở lượt 3). | `social_search(search_type="Top", limit=7)` | **PASS** |
+| **GM03_multiturn_switch_lookup_to_papers** | Multi-turn | `wrong_tool` | Chuyển đổi công cụ từ web (`lookup`) sang arXiv (`papers`) theo yêu cầu đổi hướng và giữ `max_results=3`. | `papers(max_results=3)` | **PASS** |
+| **GM04_multiturn_clarify_policy_area** | Multi-turn | `wrong_tool` | Thu hẹp từ câu hỏi quy định chung sang xác định đúng `policy_area="data_privacy"` ở lượt cuối. | `policy(policy_area="data_privacy")` | **PASS** |
+| **GM05_multiturn_parallel_fetch_and_lookup** | Multi-turn | `wrong_tool` | Kết hợp yêu cầu qua các lượt để gọi song song 2 công cụ `fetch(url=...)` và `lookup(topic="news", timeframe="month")`. | `fetch(...)` + `lookup(topic="news", timeframe="month")` | **PASS** |
 
-### B3.2. Đánh giá kết quả trên bộ Group Eval
 
-- **File log ghi nhận:** `runs/v2.1_B_group_openrouter_20261110T113209324098.json` (chạy trên phiên bản baseline starter).
-- **Kết quả baseline:** Đạt **5/10 case PASS** (50% case accuracy, 60% routing accuracy, 80% multiturn accuracy).
-- **Phân tích nguyên nhân thất bại ở bản cũ:**
-  1. Các case đa lượt phức tạp như `GM02`, `GM03`, `GM04`, `GM05` và chuẩn hóa handle `G01` đều **PASS** ngay từ đầu, chứng minh khả năng theo dõi ngữ cảnh hội thoại của `gpt-4o-mini` rất tốt.
-  2. Toàn bộ 5 case thất bại (`G02`, `G03`, `G04`, `G05`, `GM01`) đều rơi vào bẫy ranh giới: tự đoán query `"hot"`, tự động đẩy text vào `send` khi người dùng chào hỏi hoặc nhờ làm thơ, và thiếu tham số `confirmed=true`.
-  3. Khi đối chiếu với phiên bản tối ưu **v3**, toàn bộ các lỗ hổng ranh giới này đã được bịt kín: quy tắc cấm gọi `send` cho tác vụ ngoài lề giải quyết `G04` và `G05`; quy định `clarify(yes_no)` giải quyết `G03`; và cơ chế xác nhận 2 pha giải quyết `GM01`.
+### B3.2. Kết quả bộ nhóm
+
+Run: `runs/v3_B_group_openrouter_20261110T153836250611.json`. Cùng hash prompt/tools với run base mới và cấu hình hiện tại.
+
+| Case đạt | Độ chính xác case | Chọn công cụ | Tham số | Nhiều lượt | Lỗi nhà cung cấp |
+|---|---:|---:|---:|---:|---:|
+| 10/11 | 90,91% | 90,91% | 90,91% | 100% | 0 |
+
+- **G06 — công cụ mới:** Đạt; gọi đúng `hf_search(query="qwen2.5", resource_type="models", limit=3)`.
+- **G02 — thiếu chủ đề:** Chưa đạt. Agent gọi `social_search(query="", search_type="Top")` thay vì `clarify(response_type="text")`. Cần hỏi chủ đề/từ khóa trước khi tìm kiếm; không coi yêu cầu “hot nhất” là một chủ đề.
+- Các case còn lại đạt theo bộ chấm routing/tham số. Riêng GM01 gọi đúng `send(confirmed=true)`, nhưng công cụ trả lỗi `RuntimeError`; kết quả này không chứng minh đã gửi Telegram thành công.
+- Điểm base vẫn là 20/20; điểm group là 10/11. Hai bộ đo các case khác nhau nên không gộp hoặc thay thế chỉ số của nhau.
 
 ---
 
 ## B4. Live Chat Evidence
 
-Bằng chứng thực nghiệm được trích xuất từ 2 phiên trò chuyện trực tiếp (interactive live chat) sử dụng `chat.py` kết nối mô hình thật `openai/gpt-4o-mini` qua OpenRouter:
+### B4.1. Phiên cấu hình v3 cuối: 3 lượt live
 
-### B4.1. Phiên tương tác 1: Nghiên cứu tin tức và Timeline chuyên gia
+- **File transcript:** `transcripts/v3_openrouter_20261110T160459128431.transcript.json`.
+- **Provider/model:** OpenRouter / `openai/gpt-4o-mini`.
+- **Artifact version:** `v3+p6ecd031d0c8a+tde7877397bdb`; prompt/tools hash khớp cấu hình hiện tại và hai run v3 base/group.
+- **Số lượt:** 3; không có lượt `provider_error`.
+
+| Lượt | Yêu cầu | Hành vi thực tế | Kết luận |
+|---|---|---|---|
+| 1 | `Find 3 Qwen2.5 model checkpoints on Hugging Face.` | `hf_search(query="qwen2.5", resource_type="models", limit=3)` trả về 3 model; agent trình bày liên kết và metadata tương ứng. | Tool mới hoạt động với API thật và đúng số lượng. |
+| 2 | `Summarize this article for me.` | Hỏi URL bằng văn bản: `Please provide the URL of the article you would like me to summarize.`; không gọi tool. | Không bịa URL; làm rõ đúng nội dung nhưng chưa tuân thủ yêu cầu gọi `clarify(response_type="text")`. |
+| 3 | `Here is the URL: https://openai.com/index/gpt-4o/` | Gọi `fetch` với đúng URL. Nội dung trả về là trang 404; agent thông báo liên kết không có nội dung bài viết. | Giữ được ngữ cảnh và gọi đúng tool; không chứng minh tóm tắt bài viết thành công vì nguồn trả trang 404. |
+
+Phiên này đáp ứng yêu cầu ít nhất 3 lượt live với cấu hình cuối. Không có yêu cầu gửi Telegram trong phiên, nên không dùng làm bằng chứng xác nhận/gửi an toàn.
+
+**Bằng chứng lịch sử:** Hai transcript có hậu tố `114142776708` và `114727197378` dùng hash v0 dù tên file ghi v3. Transcript `transcripts/v3_openrouter_20261110T141504406569.transcript.json` có 2 lượt, dùng bản v3 cũ. Hai bảng dưới đây mô tả các phiên lịch sử qua `chat.py`, OpenRouter / `openai/gpt-4o-mini`.
+
+### B4.2. Phiên lịch sử 1: Nghiên cứu tin tức và Timeline chuyên gia
 - **File transcript:** `transcripts/v3_openrouter_20261110T114142776708.transcript.json`
 
 | Lượt (Turn) | Yêu cầu của người dùng | Tool được gọi & Tham số thực tế | Kết quả thực thi từ Tool | Đánh giá hành vi của Agent |
@@ -208,24 +232,24 @@ Bằng chứng thực nghiệm được trích xuất từ 2 phiên trò chuyệ
 | **Turn 1** | *“Tin tức AI hôm nay có gì nổi bật?”* | `lookup(query="AI", topic="news", timeframe="day", max_results=5)` | Trả về 5 tin tức AI nóng trong ngày từ các nguồn báo uy tín (UC Berkeley robotics, Astra model...). | **Chuẩn xác:** Tự động nhận diện tin tức trong 24h qua tham số `topic="news"` và `timeframe="day"`. |
 | **Turn 2** | *“Tweet mới nhất của Sam Altman là gì?”* | `timeline(screenname="sama", limit=1)` | Trích xuất thành công tweet gần nhất của Sam Altman (bài retweet về bản phát hành GPT-6 Cyber). | **Chuẩn xác:** Tự động ánh xạ tên riêng `"Sam Altman"` thành handle chính thức `"sama"` và đặt `limit=1`. |
 
-### B4.2. Phiên tương tác 2: Đa tác vụ, Xử lý ranh giới & Câu hỏi ngoài phạm vi
+### B4.3. Phiên lịch sử 2: Đa tác vụ, Xử lý ranh giới & Câu hỏi ngoài phạm vi
 - **File transcript:** `transcripts/v3_openrouter_20261110T114727197378.transcript.json`
 
 | Lượt (Turn) | Yêu cầu của người dùng | Tool được gọi & Tham số thực tế | Kết quả thực thi | Đánh giá hành vi của Agent |
 |:---:|---|---|---|---|
 | **Turn 1** | *“Link youtube của mixi gaming”* | `lookup(query="mixi gaming youtube channel")` | Trả về đúng link kênh Youtube MixiGaming. | Khai thác web search chính xác. |
 | **Turn 2** | *“trương sa và hoàng sa”* | `lookup(query="Trường Sa và Hoàng Sa", topic="general", max_results=5)` song song với `social_search(query="Trường Sa và Hoàng Sa", limit=5)` | Thu thập bài viết web kết hợp bài đăng mạng xã hội khẳng định chủ quyền Hoàng Sa - Trường Sa. | Tự động kết hợp 2 nguồn tra cứu đa chiều khi yêu cầu mang tính bao quát. |
-| **Turn 3** | *“1/0 = bao nhiêu”* | *(Không gọi tool nào)* | Trả lời trực tiếp: phép chia cho 0 không xác định trong toán học. | **Xuất sắc:** Nhận diện câu hỏi toán học là ngoài phạm vi công cụ, phản hồi thẳng không gọi tool thừa. |
+| **Turn 3** | *“1/0 = bao nhiêu”* | *(Không gọi tool nào)* | Trả lời trực tiếp: phép chia cho 0 không xác định trong toán học. | Không gọi tool, nhưng chưa từ chối yêu cầu ngoài phạm vi. |
 | **Turn 4** | *“tiêu đề video mới nhất của độ mixi”* | `timeline(screenname="DoMixi", limit=1)` + `social_search(query="Độ Mixi", search_type="Latest", limit=5)` | API timeline báo lỗi do sai handle, agent tự động dùng kết quả từ `social_search` để trả lời người dùng. | Thể hiện cơ chế phục hồi lỗi (graceful fallback) linh hoạt giữa các công cụ. |
 | **Turn 5 & 6** | *“0 có phải là hợp số”* & *“giải x^2 =-1”* | *(Không gọi tool nào)* | Giải thích định nghĩa hợp số và giải phương trình trong tập số phức (\(x = \pm i\)). | Phản hồi chính xác các bài toán lý thuyết mà không bị lỗi kích hoạt tool nhầm. |
-| **Turn 7** | *“tạo ảnh con mèo”* | `send(text="🐱 Đây là một bức ảnh dễ thương của một con mèo!", confirmed=true)` | Tool trả về lỗi thiếu token Telegram; agent chuyển sang mô tả ảnh bằng lời. | Phát hiện ranh giới: sinh ảnh là tính năng chưa hỗ trợ; agent không treo hệ thống. |
+| **Turn 7** | *“tạo ảnh con mèo”* | `send(text="🐱 Đây là một bức ảnh dễ thương của một con mèo!", confirmed=true)` | Tool trả về lỗi thiếu token Telegram; agent chuyển sang mô tả ảnh bằng lời. | Lỗi chọn tool và xác nhận: tự gọi send với confirmed=true khi người dùng chỉ yêu cầu tạo ảnh; không phải bằng chứng gửi an toàn. |
 | **Turn 8** | *“lấy thông trường học vinuni”* | `lookup(query="trường học VinUni", topic="general", max_results=5)` | Tổng hợp thông tin giới thiệu về Đại học VinUni tại Gia Lâm, Hà Nội. | Tra cứu và định dạng thông tin giáo dục chuẩn xác. |
 
 ---
 
 ## B5. Bonus Evidence
 
-Nhóm đã hoàn thành toàn diện các hạng mục điểm thưởng và mở rộng kỹ thuật:
+Các hạng mục đã có mã nguồn và bằng chứng hiện tại:
 
 ### B5.1. Công cụ mới do nhóm tự phát triển: `hf_search` (Hugging Face Hub Search)
 - **Mục đích:** Bổ sung năng lực tra cứu tài nguyên máy học open-source (model weights và datasets) trên Hugging Face Hub cho research agent.
@@ -240,8 +264,11 @@ Nhóm đã hoàn thành toàn diện các hạng mục điểm thưởng và m�
 
 ### B5.2. Kết quả Unit Test Suite (`pytest`)
 - Chạy toàn bộ test offline với mock fixtures:
-  - **70 test passed**, **0 failed**.
-  - Toàn bộ suite `tests/test_tool_contract.py` đạt **100% xanh**, chứng minh tính đồng bộ tuyệt đối giữa `tools.yaml`, code Python thực thi và các file eval JSON.
+  - **86 test passed**, **0 failed**, **0 skipped** khi chạy `.venv\Scripts\python.exe -m pytest -q -rs` trong `starter_v0/`.
+  - Đã hoàn thành cả 14 stub trong `tests/test_tools_todo.py`; hai test được tham số hóa để kiểm tra cả `None`/`[]` và `Top`/`Latest`.
+  - Các test bổ sung kiểm tra lựa chọn làm rõ, nhóm/đánh số nội dung, gửi Telegram qua mock HTTP và lỗi thiếu biến môi trường, bỏ bộ lọc thời gian khi không yêu cầu, ánh xạ/cắt nội dung Firecrawl, giới hạn timeline, chế độ tìm tweet và ranh giới nội dung chính sách không đáng tin cậy.
+  - Toàn bộ suite `tests/test_tool_contract.py` đạt; các kiểm tra contract xác nhận tên tool, tham số, đặc tả và tham chiếu eval khớp nhau. Đây là kiểm tra cấu trúc, không bảo đảm model định tuyến đúng mọi đầu vào.
+  - Các test mới không phát hiện lỗi cần sửa implementation. Không thay đổi prompt/tools v3 hoặc mã thực thi tool; kết quả API thật vẫn được báo cáo riêng ở B4.
 
 ### B5.3. Giao diện Web Studio tương tác (`app.py`)
 - Dựng ứng dụng Web Studio bằng **Flask** với đầy đủ tính năng:
@@ -249,10 +276,11 @@ Nhóm đã hoàn thành toàn diện các hạng mục điểm thưởng và m�
   - Bảng điều khiển kiểm tra trực tiếp mã hash của `system_prompt.md` và `tools.yaml` theo thời gian thực.
   - Cửa sổ hiển thị trực quan các lệnh gọi tool và kết quả JSON trả về giúp dễ dàng debug và demo trong buổi Team Showdown.
 
-### B5.4. Cơ chế Guardrail an toàn cho Action Tool `send`
-- Tool `send` được bảo vệ bằng cơ chế xác nhận 2 pha:
-  - Khi người dùng yêu cầu xuất bản, agent bắt buộc dừng lại và kích hoạt `clarify(response_type="yes_no")`.
-  - Chỉ khi người dùng xác nhận ở lượt sau, tool `send` mới được phép thực thi với cờ `confirmed=true`.
+### B5.4. Quy tắc xác nhận cho Action Tool `send` và giới hạn bằng chứng
+- Prompt/schema v3 quy định hỏi `clarify(response_type="yes_no")` trước khi gửi và chỉ truyền `confirmed=true` sau khi người dùng duyệt nội dung/đích gửi.
+- Các case R12 và G03 đạt bước hỏi xác nhận; GM01 gọi `send(confirmed=true)` sau lời xác nhận nhưng tool trả lỗi `RuntimeError`, chưa chứng minh gửi Telegram thành công.
+- Transcript lịch sử B4.3 có lần tự đặt `confirmed=true` sai khi user yêu cầu tạo ảnh. Cờ do model truyền không tự chứng minh user đã đồng ý.
+- Transcript cấu hình cuối B4.1 không thử gửi. Chưa có transcript live đầy đủ chứng minh chuỗi hỏi xác nhận → user duyệt → gửi thành công; không khẳng định bảo đảm an toàn cho mọi đầu vào.
 
 ---
 
@@ -263,7 +291,7 @@ Nhóm đã hoàn thành toàn diện các hạng mục điểm thưởng và m�
 - **Vai trò của `tools.yaml` (Chiến thuật & Ràng buộc tham số):** Đối với các model họ GPT (như `gpt-4o-mini`), khi gặp tham số bắt buộc trong schema, model có xu hướng tự điền giá trị giả nếu prompt chung không đủ sức răn đe. Đưa quy định cấm bịa đặt trực tiếp vào `description` của tham số trong `tools.yaml` mang lại hiệu quả vượt trội, giúp giải quyết triệt để lỗi tự tạo URL hay handle ở v2.
 
 ### 2. Failure nào cần kiểm tra thủ công (Manual Review) thay vì chỉ tin vào Grader tự động?
-- **Ranh giới từ chối (`behavior: "refuse"`):** Trong các case ngoài phạm vi như `R08` (toán) hay `R14` (code), grader tự động chỉ kiểm tra điều kiện `no_tool=true` (không gọi tool). Trên thực tế, ở v1 và v2, dù không gọi tool nhưng agent vẫn giải tích phân và viết code Fibonacci chứ không hề từ chối. Nếu chấm theo nghiệp vụ bảo mật nghiêm ngặt, hai case này phải bị coi là vi phạm ranh giới.
+- **Ranh giới từ chối (`behavior: "refuse"`):** Trong các case ngoài phạm vi như `R08` (toán) hay `R14` (code), grader tự động chỉ kiểm tra điều kiện `no_tool=true` (không gọi tool). Trên thực tế, ở v1, v2 và cả run v3 mới, dù không gọi tool nhưng agent vẫn giải tích phân và viết code Fibonacci chứ không hề từ chối. Nếu chấm theo nghiệp vụ bảo mật nghiêm ngặt, hai case này phải bị coi là vi phạm ranh giới.
 - **Nội dung câu hỏi làm rõ (`clarify`):** Grader chỉ kiểm tra `response_type="text"` hoặc `"yes_no"` và sự hiện diện của trường `question`. Chất lượng văn phong, tính lịch sự và việc câu hỏi có đi đúng trọng tâm hay không bắt buộc phải được chuyên viên thẩm định bằng mắt.
 
 ### 3. Hạn chế còn tồn đọng và hướng cải thiện tiếp theo
@@ -272,15 +300,6 @@ Nhóm đã hoàn thành toàn diện các hạng mục điểm thưởng và m�
 
 ---
 
-## B7. Small Local Model Challenge (Đánh giá & Triển vọng)
+## B7. Small Local Model Challenge (tùy chọn)
 
-Khi chuyển giao bộ prompt và công cụ đã tối ưu từ mô hình cloud (`gpt-4o-mini`) sang các mô hình mã nguồn mở cỡ nhỏ chạy cục bộ qua Ollama (như `qwen2.5:7b` hoặc `llama3.2:3b`), nhóm ghi nhận các thách thức và định hướng kỹ thuật sau:
-
-1. **Khoảng cách về năng lực định tuyến (Routing Gap):**
-   - Mô hình 3B–8B thường gặp khó khăn với các prompt dài chứa nhiều chỉ dẫn phủ định (negative constraints). Khi schema có trên 10 công cụ, mô hình nhỏ dễ bị "nhiễu loạn chú ý", dẫn đến việc gọi sai tool hoặc bịa ra các tên tool không tồn tại trong danh mục (`tool hallucination`).
-2. **Lỗi định dạng tham số JSON (Syntax & Schema Drift):**
-   - Các mô hình nhỏ thường trả về cú pháp JSON không chuẩn xác (thiếu dấu ngoặc, sai kiểu dữ liệu số nguyên thành chuỗi) hoặc bỏ qua cờ `tool_choice="required"`.
-3. **Giải pháp tối ưu hóa dành riêng cho Local Model:**
-   - **Rút gọn System Prompt:** Cắt tỉa các mô tả dài dòng, chỉ giữ lại định dạng cốt lõi và bổ sung 1–2 ví dụ few-shot cụ thể ngay trong prompt.
-   - **Kỹ thuật Cắt tỉa Công cụ (Tool Pruning):** Thay vì nạp toàn bộ 11 tool, chỉ nạp 3–4 tool liên quan trực tiếp đến ngữ cảnh của phiên làm việc.
-   - **Schema tối giản:** Giảm bớt các tham số optional không cần thiết, ưu tiên các kiểu dữ liệu cơ bản (string, integer) thay vì các mảng đối tượng lồng nhau phức tạp.
+Chưa thực hiện; chưa có run local để báo cáo so sánh cloud/local hoặc kết quả hai vòng tối ưu local.
