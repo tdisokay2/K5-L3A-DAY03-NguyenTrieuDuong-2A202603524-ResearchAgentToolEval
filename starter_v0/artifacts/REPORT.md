@@ -7,7 +7,11 @@
 ## Team
 
 - Team: _(điền tên team)_
-- Members: _(điền thành viên)_
+- Members: 
+    - Lê Thái Dương
+    - Nguyễn Triều Dương
+    - Vũ Trọng Quang
+    - Vũ Văn Hảo
 - Provider/model: OpenRouter — `openai/gpt-4o-mini`
 - Version hiện tại: **v2** (`v2+p977c090dc9b3+tedadc4e7f129`)
 
