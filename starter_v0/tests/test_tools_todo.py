@@ -110,13 +110,33 @@ def test_policy_instruction_like_lines_go_to_untrusted_text() -> None:
 #   2. bad / missing input from the model (empty string, wrong type, out-of-enum value)
 #   3. failure path (missing key, HTTP error, timeout) -> returns error dict, does not raise
 
-def test_my_new_tool_happy_path() -> None:
-    pytest.skip(TODO)
+def test_my_new_tool_happy_path(fake_http) -> None:
+    calls = fake_http(FakeResponse([
+        {"id": "Qwen/Qwen2.5-7B-Instruct", "likes": 1200, "downloads": 54000, "pipeline_tag": "text-generation"}
+    ]))
+    hf_tool = TOOL_FUNCTIONS["hf_search"]
+    result = hf_tool(query="qwen2.5", resource_type="models", limit=2)
+
+    assert calls[0]["url"] == "https://huggingface.co/api/models"
+    assert calls[0]["params"]["search"] == "qwen2.5"
+    assert calls[0]["params"]["limit"] == 2
+    assert result["count"] == 1
+    assert result["items"][0]["id"] == "Qwen/Qwen2.5-7B-Instruct"
+    assert result["items"][0]["url"] == "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"
+    assert result["items"][0]["pipeline_tag"] == "text-generation"
 
 
 def test_my_new_tool_bad_input_from_model() -> None:
-    pytest.skip(TODO)
+    hf_tool = TOOL_FUNCTIONS["hf_search"]
+    result = hf_tool(query="", resource_type="models", limit=0)
+    assert "error" in result
+    assert result["error"] == "ValueError"
+    assert "Query cannot be empty" in result["message"]
 
 
-def test_my_new_tool_failure_returns_error_dict() -> None:
-    pytest.skip(TODO)
+def test_my_new_tool_failure_returns_error_dict(fake_http) -> None:
+    fake_http(FakeResponse({"error": "Service Unavailable"}, status_code=503))
+    hf_tool = TOOL_FUNCTIONS["hf_search"]
+    result = hf_tool(query="llama-3")
+    assert "error" in result
+    assert result["tool"] == "hf_search"
