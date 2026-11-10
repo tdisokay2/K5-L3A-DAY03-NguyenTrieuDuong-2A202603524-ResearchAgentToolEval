@@ -1,7 +1,297 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp (5 single-turn G01-G05 và 5 multi-turn GM01-GM05). Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Kèm metadata.what_it_tests.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01_handle_strip_at_and_limit",
+      "phase": "B",
+      "suite": "group",
+      "query": "Lấy giúp mình 4 tweet gần đây của tài khoản @ylecun",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "ylecun",
+              "limit": 4
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "handle_normalization_and_limit",
+        "difficulty": "easy",
+        "what_it_tests": "Single-turn: chuẩn hóa screenname bỏ ký tự '@' (@ylecun -> ylecun) và trích đúng limit=4."
+      }
+    },
+    {
+      "id": "G02_missing_search_topic",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm giúp mình các bài tweet đang hot nhất hiện nay nhé",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "clarify_missing_query",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: yêu cầu tìm tweet hot nhưng thiếu hoàn toàn chủ đề/từ khóa -> phải gọi clarify hỏi lại thay vì tự đoán query."
+      }
+    },
+    {
+      "id": "G03_send_without_confirmation_guard",
+      "phase": "B",
+      "suite": "group",
+      "query": "Gửi ngay thông báo 'Họp nhóm AI lúc 16h30' lên kênh Telegram cho mọi người!",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "confirm_before_telegram_send",
+        "difficulty": "medium",
+        "what_it_tests": "Single-turn: dù user giục 'gửi ngay' ở lượt đầu nhưng chưa qua bước xác nhận -> phải gọi clarify (yes_no) trước khi gọi send."
+      }
+    },
+    {
+      "id": "G04_no_tool_greeting_smalltalk",
+      "phase": "B",
+      "suite": "group",
+      "query": "Chào bạn, cảm ơn bạn đã hỗ trợ mình tra cứu tài liệu sáng nay nhé!",
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "metadata": {
+        "skill": "no_tool_smalltalk",
+        "difficulty": "easy",
+        "what_it_tests": "Single-turn: câu chào hỏi/cảm ơn xã giao -> phản hồi trực tiếp, tuyệt đối không gọi tool thừa."
+      }
+    },
+    {
+      "id": "G05_out_of_scope_translation",
+      "phase": "B",
+      "suite": "group",
+      "query": "Viết giúp mình một bài thơ lục bát 8 câu về mùa thu Hà Nội.",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "skill": "out_of_scope_creative_writing",
+        "difficulty": "easy",
+        "what_it_tests": "Single-turn: yêu cầu sáng tác thơ ngoài phạm vi research agent -> không gọi tool và từ chối lịch sự."
+      }
+    },
+    {
+      "id": "GM01_multiturn_confirm_then_send",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Đăng bản tin 'Tổng hợp AI ngày 10/11' lên Telegram giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Đúng nội dung đó rồi, bạn có cần mình xác nhận không?"
+        },
+        {
+          "role": "user",
+          "content": "Mình xác nhận đồng ý gửi nhé, đăng bản tin 'Tổng hợp AI ngày 10/11' lên Telegram ngay đi"
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_confirmed_send",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: sau khi user đã xác nhận rõ ràng ở lượt cuối -> gọi tool send với confirmed=true."
+      }
+    },
+    {
+      "id": "GM02_multiturn_social_search_type_and_limit",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm các tweet bàn về Claude 4 trên Twitter"
+        },
+        {
+          "role": "user",
+          "content": "Lấy các bài phổ biến (Top) nhất chứ đừng lấy bài mới nhất"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy đúng 7 tweet về Claude 4 thôi nhé"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "search_type": "Top",
+              "limit": 7
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_social_search_refinement",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: tổng hợp ngữ cảnh qua 3 lượt cho social_search (query về Claude 4, search_type='Top' từ lượt 2, limit=7 từ lượt 3)."
+      }
+    },
+    {
+      "id": "GM03_multiturn_switch_lookup_to_papers",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin tức trên web về kỹ thuật speculative decoding"
+        },
+        {
+          "role": "user",
+          "content": "Thôi đừng tìm tin web nữa, tìm bài báo khoa học trên arXiv đi"
+        },
+        {
+          "role": "user",
+          "content": "Tìm 3 paper arXiv về speculative decoding nhé"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "max_results": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_switch_to_arxiv",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: chuyển đổi công cụ từ lookup (web) sang papers (arXiv) theo yêu cầu đổi hướng của user và giữ max_results=3."
+      }
+    },
+    {
+      "id": "GM04_multiturn_clarify_policy_area",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Kiểm tra quy định nội bộ của công ty giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Mình muốn hỏi về quy định bảo mật dữ liệu và API key"
+        },
+        {
+          "role": "user",
+          "content": "Tra cứu trong mục data privacy giúp mình nhé"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "policy",
+            "args": {
+              "policy_area": "data_privacy"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_policy_lookup",
+        "difficulty": "medium",
+        "what_it_tests": "Multi-turn: đi từ câu hỏi chung về quy định công ty sang xác định rõ policy_area='data_privacy' ở lượt cuối."
+      }
+    },
+    {
+      "id": "GM05_multiturn_parallel_fetch_and_lookup",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Đọc giúp mình bài viết ở link https://openai.com/index/gpt-4o/"
+        },
+        {
+          "role": "user",
+          "content": "À, đồng thời tìm thêm tin tức web trong tháng này về GPT-4o nữa"
+        },
+        {
+          "role": "user",
+          "content": "Làm cả hai việc luôn nhé: đọc link https://openai.com/index/gpt-4o/ và tìm tin tức web trong tháng này về GPT-4o"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/index/gpt-4o/"
+            }
+          },
+          {
+            "name": "lookup",
+            "args": {
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_parallel_fetch_lookup",
+        "difficulty": "hard",
+        "what_it_tests": "Multi-turn: kết hợp yêu cầu qua các lượt để gọi song song 2 công cụ fetch (đọc URL cụ thể) và lookup (topic='news', timeframe='month')."
+      }
+    }
+  ]
 }
