@@ -1,4 +1,4 @@
-# starter_v0 — tool declarations (intentionally vague).
+# Research tool declarations. Names and schemas remain compatible with the starter.
 # Names and descriptions here are a rough first draft. Routing rules, name->handle
 # mapping, arg conventions (news/timeframe/Top), and the send-confirmation boundary
 # are NOT spelled out anywhere yet. Your job is to make these declarations + the
@@ -16,47 +16,47 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: "Hỏi khi thiếu đầu vào bắt buộc hoặc cần xác nhận hành động. Dùng response_type=text khi thiếu tài khoản/URL; dùng yes_no trước khi gửi hoặc đăng ra ngoài. Không hỏi tham số tùy chọn đã có mặc định hoặc thông tin đã có trong hội thoại."
     parameters:
       type: object
       properties:
         question: {type: string, default: "", description: "Câu hỏi"}
-        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời"}
+        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "text để bổ sung thông tin; yes_no để xác nhận gửi/đăng; choice khi có lựa chọn cụ thể"}
         options: {type: array, default: [], items: {type: string}, description: "Các lựa chọn"}
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: "Lấy bài đăng CỦA tài khoản đã xác định, kể cả qua tên người nổi tiếng có handle biết chắc. Không dùng để tìm bài VỀ chủ đề. Nếu thiếu danh tính tài khoản thì clarify; không hỏi số lượng khi có thể dùng mặc định."
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        screenname: {type: string, default: "", description: "Handle không có @; có thể ánh xạ tên đã biết chắc, ví dụ Sam Altman -> sama; không tự chọn người khi user chưa nêu danh tính"}
+        limit: {type: integer, default: 5, description: "Số bài user yêu cầu; một bài mới nhất dùng 1; không nêu số lượng thì dùng mặc định 5"}
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Chỉ tìm tweet/bài đăng mạng xã hội VỀ từ khóa khi nguồn mạng xã hội vẫn đang được user yêu cầu. KHÔNG gọi nếu user đã bỏ Twitter hoặc chuyển sang web/tin tức, kể cả lượt cũ từng yêu cầu Twitter. Chỉ giữ chủ đề không khôi phục nguồn đã hủy. Không dùng cho tin web chung hoặc bài CỦA tài khoản đã xác định; dùng lookup hoặc timeline tương ứng."
     parameters:
       type: object
       properties:
         query: {type: string, default: "", description: "Từ khóa"}
-        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp"}
+        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Top cho phổ biến/nổi bật/top; Latest cho mới nhất/gần đây; đúng chữ hoa"}
         limit: {type: integer, default: 5, description: "Số lượng"}
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: "Tìm web hoặc tin tức. Khi user chuyển từ Twitter sang web, chỉ gọi lookup và không gọi social_search nữa. Với tin tức truyền topic=news; hôm nay dùng timeframe=day. Giữ loại nguồn và thời gian khi user chỉ đổi chủ đề. Chỉ gọi cùng social_search khi user hiện yêu cầu cả hai nguồn, không phải khi nguồn cũ đã bị thay thế."
     parameters:
       type: object
       properties:
         query: {type: string, default: "", description: "Truy vấn"}
-        topic: {type: string, enum: [general, news], default: "general", description: "Phân loại"}
-        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian"}
+        topic: {type: string, enum: [general, news], default: "general", description: "Truyền news rõ ràng cho tin tức/news; general cho tìm web thông thường. Giữ news trong lượt tiếp nối nếu chỉ đổi chủ đề."}
+        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "day=hôm nay/24 giờ; week=tuần này; month=tháng này; year=năm này. Giữ thời gian từ lượt trước trừ khi user đổi."}
         max_results: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: "Đọc nội dung một URL đã được cung cấp trong yêu cầu hoặc lịch sử hội thoại. Không dùng khi chưa có URL; khi đó gọi clarify với response_type=text. Không tự tạo URL hoặc dùng URL mẫu."
     parameters:
       type: object
       properties:
@@ -64,7 +64,7 @@ tools:
       required: [url]
 
   - name: format
-    description: "Trình bày dữ liệu đã có thành văn bản."
+    description: "Trình bày các source item đã có thành markdown digest theo template. Không tìm kiếm hay đọc nguồn; phải thu thập item trước, không tự tạo nguồn."
     parameters:
       type: object
       properties:
@@ -86,16 +86,16 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: "Đăng nội dung đã duyệt lên Telegram, có tác động bên ngoài. Chỉ gọi sau khi user xác nhận nội dung và đích gửi; truyền confirmed=true. Yêu cầu đăng ban đầu chưa phải xác nhận: gọi clarify với response_type=yes_no trước. Không dùng để trả lời trong chat."
     parameters:
       type: object
       properties:
         text: {type: string, default: "", description: "Nội dung"}
-        confirmed: {type: boolean, default: false, description: "Cờ xác nhận"}
+        confirmed: {type: boolean, default: false, description: "Chỉ true khi user đã xác nhận rõ nội dung và đích gửi sau bước hỏi xác nhận; không suy ra từ yêu cầu đăng ban đầu"}
       required: [text]
 
   - name: policy
-    description: "Tìm trong tài liệu nội bộ."
+    description: "Tìm quy định trong kho markdown chính sách công ty nội bộ. Không dùng cho tin web, tweet hoặc chính sách của tổ chức khác."
     parameters:
       type: object
       properties:
@@ -105,7 +105,7 @@ tools:
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học."
+    description: "Tìm metadata và liên kết bài báo khoa học trên arXiv theo chủ đề nghiên cứu. Không dùng cho tin tức hoặc trích toàn văn PDF; đọc toàn văn bằng paper_text."
     parameters:
       type: object
       properties:
@@ -115,7 +115,7 @@ tools:
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung text của một bài báo."
+    description: "Tải và trích text PDF arXiv từ ID hoặc URL bài đã xác định. Không dùng để tìm paper theo chủ đề (dùng papers), hoặc đọc URL web thông thường (dùng fetch)."
     parameters:
       type: object
       properties:

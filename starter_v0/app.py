@@ -32,29 +32,29 @@ PROMPT_PRESETS: dict[str, dict[str, Any]] = {
         "label": "v3 — Hoàn thiện (Đề xuất)",
         "badge": "Recommended",
         "description": "Đầy đủ rule routing, 2-step Send confirmation guardrail, clarify khi thiếu dữ liệu, chuẩn hóa handle không có @.",
-        "prompt_path": PROMPTS_DIR / "system_prompt_v3.md" if (PROMPTS_DIR / "system_prompt_v3.md").exists() else ARTIFACTS_DIR / "system_prompt.md",
-        "tools_path": PROMPTS_DIR / "tools_v3.yaml" if (PROMPTS_DIR / "tools_v3.yaml").exists() else ARTIFACTS_DIR / "tools.yaml",
+        "prompt_path": PROMPTS_DIR / "system_prompt_v3.md",
+        "tools_path": PROMPTS_DIR / "tools_v3.yaml",
     },
     "v2": {
         "label": "v2 — Tool Prerequisite",
         "badge": "High Accuracy",
         "description": "Thêm prerequisite rõ ràng vào mô tả tool trong tools.yaml (chặn đoán mò tài khoản và URL).",
-        "prompt_path": PROMPTS_DIR / "system_prompt_v2.md" if (PROMPTS_DIR / "system_prompt_v2.md").exists() else ARTIFACTS_DIR / "system_prompt.md",
-        "tools_path": PROMPTS_DIR / "tools_v3.yaml" if (PROMPTS_DIR / "tools_v3.yaml").exists() else ARTIFACTS_DIR / "tools.yaml",
+        "prompt_path": PROMPTS_DIR / "system_prompt_v2.md",
+        "tools_path": PROMPTS_DIR / "tools_v2.yaml",
     },
     "v1": {
         "label": "v1 — Clarification Prompt",
         "badge": "Prompt-only",
-        "description": "Bổ sung rule hỏi lại khi thiếu thông tin trong system prompt, từ chối câu ngoài phạm vi.",
-        "prompt_path": PROMPTS_DIR / "system_prompt_v1.md" if (PROMPTS_DIR / "system_prompt_v1.md").exists() else ARTIFACTS_DIR / "system_prompt.md",
-        "tools_path": ARTIFACTS_DIR / "tools.yaml",
+        "description": "Bổ sung rule hỏi lại khi thiếu thông tin trong system prompt; giữ tool declarations của baseline.",
+        "prompt_path": PROMPTS_DIR / "system_prompt_v1.md",
+        "tools_path": PROMPTS_DIR / "tools_v1.yaml",
     },
     "v0": {
         "label": "v0 — Baseline (Khởi điểm)",
         "badge": "Baseline",
         "description": "Bản mẫu thô ban đầu: khuyến khích đoán mò tham số, gửi ngay không hỏi xác nhận.",
-        "prompt_path": PROMPTS_DIR / "system_prompt_v0.md" if (PROMPTS_DIR / "system_prompt_v0.md").exists() else ARTIFACTS_DIR / "system_prompt.md",
-        "tools_path": ARTIFACTS_DIR / "tools.yaml",
+        "prompt_path": PROMPTS_DIR / "system_prompt_v0.md",
+        "tools_path": PROMPTS_DIR / "tools_v0.yaml",
     },
 }
 
@@ -71,12 +71,12 @@ DEFAULT_CONFIG: dict[str, Any] = {
 
 def get_version_paths(version_label: str) -> tuple[Path, Path]:
     preset = PROMPT_PRESETS.get(version_label)
-    if preset:
-        p_path = preset["prompt_path"]
-        t_path = preset["tools_path"]
-        if p_path.exists() and t_path.exists():
-            return p_path, t_path
-    return ARTIFACTS_DIR / "system_prompt.md", ARTIFACTS_DIR / "tools.yaml"
+    if preset is None:
+        raise ValueError(f"Unknown prompt version: {version_label}")
+    for path in (preset["prompt_path"], preset["tools_path"]):
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing {version_label} snapshot: {path}")
+    return preset["prompt_path"], preset["tools_path"]
 
 
 def create_session(provider_name: str, version_label: str, model_override: str | None = None) -> dict[str, Any]:
@@ -1223,6 +1223,8 @@ def api_prompts():
 def api_create_session():
     payload = request.get_json(silent=True) or {}
     version_label = payload.get("version") or DEFAULT_CONFIG["version"]
+    if not isinstance(version_label, str) or version_label not in PROMPT_PRESETS:
+        return jsonify({"error": "Unknown prompt version"}), 400
 
     state = create_session(
         provider_name=DEFAULT_CONFIG["provider"],
