@@ -2,7 +2,6 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm: Nhóm 2A (K5-L3A-DAY03)
 - Thành viên: 
   - Lê Thái Dương
   - Nguyễn Triều Dương
