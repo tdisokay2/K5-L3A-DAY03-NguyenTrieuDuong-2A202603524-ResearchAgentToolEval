@@ -123,3 +123,13 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang"}
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
+
+  - name: hf_search
+    description: "Tìm kiếm mô hình học máy (model checkpoints/weights) hoặc datasets trên Hugging Face Hub. Dùng khi user muốn tìm open-source weights, transformers pipeline, hoặc AI dataset. KHÔNG dùng cho bài báo nghiên cứu lý thuyết (dùng papers) hoặc tin tức web chung (dùng lookup)."
+    parameters:
+      type: object
+      properties:
+        query: {type: string, default: "", description: "Từ khóa hoặc tên model/dataset, ví dụ: qwen2.5, llama-3"}
+        resource_type: {type: string, enum: [models, datasets], default: "models", description: "Loại tài nguyên: models cho model checkpoints; datasets cho tập dữ liệu"}
+        limit: {type: integer, default: 5, description: "Số lượng kết quả cần lấy"}
+      required: [query]

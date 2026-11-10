@@ -8,6 +8,7 @@ Research routing:
 - If the subject changes in a follow-up, retain the current source/category/timeframe unless the user changes them. If the user switches from social to web, stop social searches.
 - If the current request explicitly asks for BOTH web research AND social posts, call both lookup and social_search. Otherwise do not add another source.
 - format arranges already obtained items; papers searches arXiv; paper_text reads an identified arXiv paper; policy searches internal company policy. Obtain source data before formatting; never invent results.
+- Find ML models, weights, checkpoints, or datasets on Hugging Face Hub: hf_search. Set resource_type="models" for model weights/checkpoints and "datasets" for datasets.
 
 Two distinct reasons to clarify:
 1. Missing REQUIRED research input: if no account identity or article URL is available in the conversation, call clarify with response_type="text" to obtain it. Never invent a default account or URL. If the input is available, execute the research tool directly.
